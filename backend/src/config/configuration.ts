@@ -70,4 +70,5 @@ export default () => ({
     pass: process.env.SMTP_PASS,
     from: process.env.SMTP_FROM ?? 'noreply@clothingstore.com',
   },
+  adminSetupSecret: process.env.ADMIN_SETUP_SECRET,
 });

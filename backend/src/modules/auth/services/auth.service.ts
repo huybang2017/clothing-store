@@ -15,6 +15,7 @@ import { UserRepository } from '../../users/repositories/user.repository';
 import { RefreshTokenRepository } from '../repositories/refresh-token.repository';
 import { LoginDto } from '../dto/login.dto';
 import { RegisterDto } from '../dto/register.dto';
+import { MakeAdminDto } from '../dto/make-admin.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
 import { ChangePasswordDto } from '../dto/change-password.dto';
 
@@ -121,6 +122,29 @@ export class AuthService {
       await this.refreshTokenRepository.revokeAllForUser(userId);
     }
     return successResponse(null, 'Đã đăng xuất');
+  }
+
+  async makeAdmin(dto: MakeAdminDto) {
+    const configuredSecret = this.configService.get<string>('adminSetupSecret');
+    if (!configuredSecret) {
+      throw new BadRequestException(MSG.ADMIN_SETUP_DISABLED);
+    }
+    if (dto.secret !== configuredSecret) {
+      throw new UnauthorizedException(MSG.ADMIN_SETUP_INVALID);
+    }
+
+    const user = await this.userRepository.findByEmail(dto.email);
+    if (!user) {
+      throw new BadRequestException(MSG.USER_NOT_FOUND);
+    }
+    if (user.role === UserRole.ADMIN) {
+      return successResponse(UserMapper.toResponse(user), MSG.ADMIN_GRANTED);
+    }
+
+    const updated = await this.userRepository.update(user.id, {
+      role: UserRole.ADMIN,
+    });
+    return successResponse(UserMapper.toResponse(updated!), MSG.ADMIN_GRANTED);
   }
 
   private hashToken(token: string): string {

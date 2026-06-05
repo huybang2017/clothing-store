@@ -13,4 +13,5 @@ export const envValidationSchema = Joi.object({
   FRONTEND_URL: Joi.string().uri().required(),
   THROTTLE_TTL: Joi.number().default(60000),
   THROTTLE_LIMIT: Joi.number().default(100),
+  ADMIN_SETUP_SECRET: Joi.string().min(8).optional(),
 });

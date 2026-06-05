@@ -9,6 +9,7 @@ import { UpdateProfileDto } from '../dto/update-profile.dto';
 import { ChangePasswordDto } from '../dto/change-password.dto';
 import { RefreshTokenDto } from '../dto/refresh-token.dto';
 import { LogoutDto } from '../dto/logout.dto';
+import { MakeAdminDto } from '../dto/make-admin.dto';
 import { AuthService } from '../services/auth.service';
 
 @ApiTags('Auth')
@@ -35,6 +36,13 @@ export class AuthController {
   @Post('refresh')
   refresh(@Body() dto: RefreshTokenDto) {
     return this.authService.refresh(dto.refreshToken);
+  }
+
+  @Public()
+  @Throttle({ default: { limit: 5, ttl: 60000 } })
+  @Post('make-admin')
+  makeAdmin(@Body() dto: MakeAdminDto) {
+    return this.authService.makeAdmin(dto);
   }
 
   @Post('logout')
