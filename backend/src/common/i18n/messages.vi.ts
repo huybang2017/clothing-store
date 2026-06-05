@@ -21,6 +21,9 @@ export const MSG = {
   ADMIN_SETUP_DISABLED: 'Chưa cấu hình ADMIN_SETUP_SECRET trên server',
   ADMIN_SETUP_INVALID: 'Secret không hợp lệ',
   ADMIN_GRANTED: 'Đã cấp quyền admin',
+  ADMIN_CREATED: 'Đã tạo tài khoản admin',
+  ADMIN_SETUP_NEED_PROFILE:
+    'Không tìm thấy người dùng. Gửi thêm password và fullName để tạo admin mới.',
   AUTHENTICATED: 'Xác thực thành công',
   CATEGORY_NOT_FOUND: 'Không tìm thấy danh mục',
   CATEGORY_CREATED: 'Đã tạo danh mục',

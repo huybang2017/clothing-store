@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, MinLength } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class MakeAdminDto {
   @ApiProperty({ example: 'you@example.com' })
@@ -10,4 +10,19 @@ export class MakeAdminDto {
   @IsString()
   @MinLength(8)
   secret: string;
+
+  @ApiPropertyOptional({
+    description: 'Required when the email is not registered yet',
+  })
+  @IsOptional()
+  @IsString()
+  @MinLength(8)
+  password?: string;
+
+  @ApiPropertyOptional({
+    description: 'Required when the email is not registered yet',
+  })
+  @IsOptional()
+  @IsString()
+  fullName?: string;
 }

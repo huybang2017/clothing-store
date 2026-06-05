@@ -135,7 +135,22 @@ export class AuthService {
 
     const user = await this.userRepository.findByEmail(dto.email);
     if (!user) {
-      throw new BadRequestException(MSG.USER_NOT_FOUND);
+      if (!dto.password || !dto.fullName) {
+        throw new BadRequestException(MSG.ADMIN_SETUP_NEED_PROFILE);
+      }
+
+      const hashed = await bcrypt.hash(dto.password, 10);
+      const created = await this.userRepository.create({
+        id: randomUUID(),
+        email: dto.email,
+        password: hashed,
+        fullName: dto.fullName,
+        role: UserRole.ADMIN,
+      });
+      return successResponse(
+        UserMapper.toResponse(created),
+        MSG.ADMIN_CREATED,
+      );
     }
     if (user.role === UserRole.ADMIN) {
       return successResponse(UserMapper.toResponse(user), MSG.ADMIN_GRANTED);
