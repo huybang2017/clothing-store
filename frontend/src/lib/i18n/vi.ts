@@ -41,6 +41,16 @@ export const vi = {
     tagline: 'Thời trang cao cấp cho phong cách hiện đại',
     copyright: 'Bản quyền thuộc về Clothify',
   },
+  footer: {
+    shop: 'Mua sắm',
+    account: 'Tài khoản',
+    contact: 'Liên hệ',
+    allProducts: 'Tất cả sản phẩm',
+    email: 'hello@clothify.vn',
+    phone: '1900 1234',
+    address: 'Hà Nội, Việt Nam',
+    crafted: 'Thiết kế với sự chăm chút cho trải nghiệm mua sắm',
+  },
   auth: {
     welcomeBack: 'Chào mừng trở lại',
     signInSubtitle: 'Đăng nhập để tiếp tục mua sắm.',

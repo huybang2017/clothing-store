@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/common/ProductCard';
 import { ProductGridSkeleton } from '@/components/common/ProductGridSkeleton';
@@ -15,30 +15,32 @@ export default function HomePage() {
   const { data, isLoading } = useGetProductsQuery({
     isFeatured: true,
     status: 'active',
-    limit: 12,
+    limit: 15,
   });
   const products = data?.data ?? [];
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-blue-600 px-4 py-20 sm:py-28">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-sky-100">
+        <div className="relative aspect-[21/9] min-h-[16rem] w-full sm:min-h-[20rem] md:aspect-[2.4/1]">
+          <img
+            src="/images/hero-banner.jpg"
+            alt={vi.home.heroTitle}
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/80 to-transparent sm:h-20" />
+        </div>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative mx-auto max-w-7xl"
+          transition={{ duration: 0.4 }}
+          className="absolute bottom-6 right-4 sm:bottom-8 sm:right-8"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm text-white backdrop-blur">
-            <Sparkles className="h-4 w-4" />
-            {vi.home.badge}
-          </div>
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.1]">
-            {vi.home.heroTitle}
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-white/85">{vi.home.heroSubtitle}</p>
-          <Link href={ROUTES.shop} className="mt-10 inline-block">
-            <Button size="lg" className="gap-2 bg-white text-blue-600 shadow-lg hover:bg-white/95">
+          <Link href={ROUTES.shop}>
+            <Button
+              size="lg"
+              className="gap-2 bg-white text-blue-600 shadow-lg ring-1 ring-blue-100 hover:bg-blue-50"
+            >
               {vi.home.shopCollection}
               <ArrowRight className="h-4 w-4" />
             </Button>

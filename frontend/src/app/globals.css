@@ -71,3 +71,12 @@ body {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
