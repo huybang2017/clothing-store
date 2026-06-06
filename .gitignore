@@ -32,8 +32,5 @@ coverage/
 # Drizzle
 backend/src/database/migrations/*.sql
 
-# Uploaded files (local fallback)
-backend/uploads/
-
 # Misc
 *.tsbuildinfo

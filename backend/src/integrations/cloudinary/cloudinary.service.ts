@@ -8,10 +8,6 @@ export class CloudinaryService {
     @Inject(CLOUDINARY) private readonly cloudinary: typeof CloudinarySDK,
   ) {}
 
-  async uploadImage(filePath: string, folder = 'clothing-store') {
-    return this.cloudinary.uploader.upload(filePath, { folder });
-  }
-
   async uploadBuffer(buffer: Buffer, folder = 'clothing-store/variants') {
     return new Promise<string>((resolve, reject) => {
       const stream = this.cloudinary.uploader.upload_stream(

@@ -1,20 +1,14 @@
 import {
   BadRequestException,
   Controller,
-  Get,
-  NotFoundException,
-  Param,
   Post,
-  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { memoryStorage } from 'multer';
-import type { Response } from 'express';
 import { UserRole } from '../../common/constants';
-import { Public } from '../../common/decorators/public.decorator';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { successResponse } from '../../common/utils/api-response.util';
 import { UploadsService } from './uploads.service';
@@ -52,21 +46,8 @@ export class UploadsController {
       throw new BadRequestException('Chỉ chấp nhận file ảnh');
     }
 
-    const { imageUrl } = await this.uploads.uploadImage(
-      file.buffer,
-      file.mimetype,
-    );
+    const { imageUrl } = await this.uploads.uploadImage(file.buffer);
 
     return successResponse({ imageUrl }, 'Tải ảnh thành công');
-  }
-
-  @Public()
-  @Get('files/:filename')
-  serveFile(@Param('filename') filename: string, @Res() res: Response) {
-    const filepath = this.uploads.resolveLocalPath(filename);
-    if (!filepath) {
-      throw new NotFoundException('Không tìm thấy file ảnh');
-    }
-    res.sendFile(filepath);
   }
 }
