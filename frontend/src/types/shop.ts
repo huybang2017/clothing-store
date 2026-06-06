@@ -36,4 +36,4 @@ export const DEFAULT_SHOP_FILTERS: ShopFiltersState = {
   featured: '',
 };
 
-export const SHOP_PAGE_SIZE = 12;
+export const SHOP_PAGE_SIZE = 15;

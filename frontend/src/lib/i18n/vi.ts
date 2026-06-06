@@ -91,6 +91,7 @@ export const vi = {
   shop: {
     title: 'Cửa hàng',
     subtitle: 'Khám phá toàn bộ bộ sưu tập thời trang',
+    search: 'Tìm kiếm',
     searchPlaceholder: 'Tìm kiếm sản phẩm, mã SKU...',
     filters: 'Bộ lọc',
     openFilters: 'Mở bộ lọc',

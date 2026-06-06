@@ -35,6 +35,7 @@ import { useGetCategoriesQuery } from '@/store/api/categoryApi';
 import { useGetBrandsQuery } from '@/store/api/brandApi';
 import {
   DEFAULT_SHOP_FILTERS,
+  SHOP_PAGE_SIZE,
   type ShopFiltersState,
   type ShopSort,
 } from '@/types/shop';
@@ -143,11 +144,11 @@ export function ShopPageClient() {
       </div>
 
       <div className="sticky top-16 z-30 -mx-4 mb-6 border-b border-slate-200 bg-white/95 px-4 py-4 backdrop-blur-md sm:static sm:mx-0 sm:rounded-2xl sm:border sm:px-5 sm:shadow-sm">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-          <div className="flex-1">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
+          <div className="min-w-0 flex-1">
             <ShopSearchBar value={searchInput} onChange={setSearchInput} />
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-end gap-3">
             <Button
               variant="outline"
               className="gap-2 lg:hidden"
@@ -234,7 +235,7 @@ export function ShopPageClient() {
               }
             />
           ) : showSkeleton ? (
-            <ProductGridSkeleton count={12} layout="sidebar" />
+            <ProductGridSkeleton count={SHOP_PAGE_SIZE} layout="sidebar" />
           ) : products.length === 0 ? (
             <EmptyState
               title={vi.shop.noProducts}

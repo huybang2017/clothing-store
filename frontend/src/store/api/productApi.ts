@@ -166,6 +166,6 @@ export function mapProductListMeta(meta?: PaginationMeta) {
     totalItems: meta?.total ?? 0,
     totalPages: meta?.totalPages ?? 0,
     currentPage: meta?.page ?? 1,
-    pageSize: meta?.limit ?? 12,
+    pageSize: meta?.limit ?? 15,
   };
 }
