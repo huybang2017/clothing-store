@@ -22,6 +22,12 @@ export const ROUTES = {
     login: '/auth/login',
     register: '/auth/register',
   },
+  company: {
+    ourStory: '/ve-chung-toi/cau-chuyen',
+    vision: '/ve-chung-toi/tam-nhin',
+    mission: '/ve-chung-toi/su-menh',
+    coreValues: '/ve-chung-toi/gia-tri-cot-loi',
+  },
   admin: {
     root: '/admin',
     dashboard: '/admin/dashboard',

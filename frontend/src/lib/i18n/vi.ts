@@ -31,6 +31,7 @@ export const vi = {
   nav: {
     home: 'Trang chủ',
     shop: 'Cửa hàng',
+    about: 'Về chúng tôi',
     cart: 'Giỏ hàng',
     admin: 'Quản trị',
     storefront: 'Cửa hàng',
@@ -44,12 +45,127 @@ export const vi = {
   footer: {
     shop: 'Mua sắm',
     account: 'Tài khoản',
+    about: 'Về chúng tôi',
     contact: 'Liên hệ',
     allProducts: 'Tất cả sản phẩm',
     email: 'hello@clothify.vn',
     phone: '1900 1234',
     address: 'Hà Nội, Việt Nam',
     crafted: 'Thiết kế với sự chăm chút cho trải nghiệm mua sắm',
+  },
+  company: {
+    sectionTitle: 'Về Clothify',
+    nav: {
+      ourStory: 'Câu chuyện của chúng tôi',
+      vision: 'Tầm nhìn',
+      mission: 'Sứ mệnh',
+      coreValues: 'Giá trị cốt lõi',
+    },
+    ourStory: {
+      title: 'Câu chuyện của chúng tôi',
+      subtitle: 'Hành trình từ đam mê thời trang đến thương hiệu được tin yêu',
+      paragraphs: [
+        'Clothify ra đời từ một niềm tin giản dị: mọi người đều xứng đáng được mặc đẹp mỗi ngày — không cần đánh đổi chất lượng hay sự thoải mái. Năm 2020, chúng tôi bắt đầu với một xưởng nhỏ tại Hà Nội, tự tay chọn từng thước vải, từng đường kim mũi chỉ, để tạo nên những thiết kế vừa vặn và bền đẹp theo thời gian.',
+        'Từ những đơn hàng đầu tiên qua mạng xã hội, Clothify dần lớn mạnh nhờ sự ủng hộ của cộng đồng yêu thời trang. Chúng tôi không chỉ bán quần áo — chúng tôi kể câu chuyện về phong cách sống tự tin, gọn gàng và có chủ đích. Mỗi bộ sưu tập đều được tuyển chọn kỹ lưỡng, cân bằng giữa xu hướng đương đại và giá trị bền vững.',
+        'Hôm nay, Clothify là điểm đến trực tuyến của hàng nghìn khách hàng trên khắp Việt Nam. Dù quy mô đã thay đổi, tinh thần ban đầu vẫn nguyên vẹn: lắng nghe, chăm chút từng chi tiết và luôn đặt trải nghiệm của bạn lên hàng đầu.',
+      ],
+      quote:
+        'Thời trang không chỉ là những gì bạn mặc — đó là cách bạn chọn thể hiện mình với thế giới.',
+      quoteAuthor: 'Đội ngũ sáng lập Clothify',
+      milestonesTitle: 'Cột mốc phát triển',
+      milestones: [
+        { year: '2020', label: 'Thành lập tại Hà Nội với bộ sưu tập đầu tiên' },
+        { year: '2022', label: 'Ra mắt nền tảng thương mại điện tử Clothify.vn' },
+        { year: '2024', label: 'Hợp tác với hơn 50 thương hiệu và nhà sản xuất trong nước' },
+        { year: '2026', label: 'Phục vụ hàng nghìn khách hàng trên toàn quốc' },
+      ],
+    },
+    vision: {
+      title: 'Tầm nhìn',
+      subtitle: 'Hướng tới tương lai thời trang bền vững và đáng tin cậy',
+      lead: 'Trở thành thương hiệu thời trang trực tuyến hàng đầu Việt Nam — nơi phong cách gặp gỡ sự tử tế.',
+      paragraphs: [
+        'Chúng tôi hình dung một thế giới nơi mua sắm thời trang trở nên minh bạch, dễ dàng và đầy cảm hứng. Mỗi sản phẩm trên Clothify đều phản ánh cam kết về chất lượng, nguồn gốc rõ ràng và trách nhiệm với môi trường.',
+        'Trong tầm nhìn dài hạn, Clothify muốn góp phần định hình văn hóa thời trang Việt: tự hào với thiết kế bản địa, cởi mở với xu hướng quốc tế, và luôn đặt con người — cả khách hàng lẫn người làm ra sản phẩm — vào trung tâm.',
+      ],
+      pillars: [
+        {
+          title: 'Dẫn đầu trải nghiệm',
+          description: 'Mua sắm trực tuyến mượt mà, giao hàng nhanh và hỗ trợ tận tâm ở mọi bước.',
+        },
+        {
+          title: 'Thời trang có ý nghĩa',
+          description: 'Ưu tiên chất liệu bền, thiết kế lâu dài thay vì xu hướng nhất thời.',
+        },
+        {
+          title: 'Cộng đồng gắn kết',
+          description: 'Xây dựng không gian nơi mọi người chia sẻ phong cách và cảm hứng thời trang.',
+        },
+      ],
+    },
+    mission: {
+      title: 'Sứ mệnh',
+      subtitle: 'Những gì chúng tôi làm mỗi ngày vì bạn',
+      lead: 'Mang đến thời trang chất lượng cao, giá cả hợp lý và trải nghiệm mua sắm đáng tin cậy cho mọi người Việt.',
+      commitments: [
+        {
+          title: 'Tuyển chọn kỹ càng',
+          description:
+            'Mỗi sản phẩm đều trải qua quy trình kiểm duyệt nghiêm ngặt về chất liệu, form dáng và độ bền trước khi đến tay bạn.',
+        },
+        {
+          title: 'Giá trị minh bạch',
+          description:
+            'Chúng tôi tin vào giá cả công bằng — không chiêu trò, không ẩn phí. Bạn luôn biết mình đang trả tiền cho điều gì.',
+        },
+        {
+          title: 'Phục vụ tận tâm',
+          description:
+            'Từ tư vấn chọn size đến hỗ trợ sau mua, đội ngũ Clothify luôn sẵn sàng lắng nghe và giải quyết mọi thắc mắc.',
+        },
+        {
+          title: 'Giao hàng đúng hẹn',
+          description:
+            'Đóng gói cẩn thận, vận chuyển an toàn và cập nhật trạng thái đơn hàng rõ ràng — vì thời gian của bạn rất quý giá.',
+        },
+      ],
+    },
+    coreValues: {
+      title: 'Giá trị cốt lõi',
+      subtitle: 'Kim chỉ nam định hướng mọi quyết định tại Clothify',
+      items: [
+        {
+          title: 'Chất lượng là ưu tiên',
+          description:
+            'Chúng tôi không thỏa hiệp về chất liệu hay đường may. Mỗi sản phẩm phải đáng để bạn mặc đi mặc lại.',
+        },
+        {
+          title: 'Khách hàng là trung tâm',
+          description:
+            'Mọi cải tiến đều bắt đầu từ phản hồi của bạn. Sự hài lòng của khách hàng là thước đo thành công lớn nhất.',
+        },
+        {
+          title: 'Trung thực & minh bạch',
+          description:
+            'Thông tin sản phẩm rõ ràng, chính sách công khai và lời hứa được giữ đúng — đó là cách chúng tôi xây dựng niềm tin.',
+        },
+        {
+          title: 'Bền vững có trách nhiệm',
+          description:
+            'Ưu tiên nguồn cung có đạo đức, giảm lãng phí bao bì và khuyến khích lựa chọn thời trang bền theo thời gian.',
+        },
+        {
+          title: 'Đổi mới liên tục',
+          description:
+            'Luôn cập nhật xu hướng, công nghệ và quy trình để mang đến trải nghiệm mua sắm ngày càng tốt hơn.',
+        },
+        {
+          title: 'Gắn kết cộng đồng',
+          description:
+            'Clothify không chỉ là cửa hàng — đó là nơi những người yêu thời trang cùng chia sẻ, học hỏi và truyền cảm hứng.',
+        },
+      ],
+    },
   },
   auth: {
     welcomeBack: 'Chào mừng trở lại',

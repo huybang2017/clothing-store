@@ -15,6 +15,13 @@ const accountLinks = [
   { href: ROUTES.cart, label: vi.nav.cart },
 ];
 
+const aboutLinks = [
+  { href: ROUTES.company.ourStory, label: vi.company.nav.ourStory },
+  { href: ROUTES.company.vision, label: vi.company.nav.vision },
+  { href: ROUTES.company.mission, label: vi.company.nav.mission },
+  { href: ROUTES.company.coreValues, label: vi.company.nav.coreValues },
+];
+
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-blue-100 bg-gradient-to-b from-white to-sky-50">
@@ -32,7 +39,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-600">
               {vi.footer.shop}
             </h3>
@@ -66,7 +73,24 @@ export function Footer() {
             </nav>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+              {vi.footer.about}
+            </h3>
+            <nav className="mt-4 flex flex-col gap-2.5">
+              {aboutLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="lg:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-600">
               {vi.footer.contact}
             </h3>

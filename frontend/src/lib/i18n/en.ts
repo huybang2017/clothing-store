@@ -30,6 +30,7 @@ export const en = {
   nav: {
     home: 'Home',
     shop: 'Shop',
+    about: 'About us',
     cart: 'Cart',
     admin: 'Admin',
     storefront: 'Storefront',
@@ -43,12 +44,127 @@ export const en = {
   footer: {
     shop: 'Shop',
     account: 'Account',
+    about: 'About us',
     contact: 'Contact',
     allProducts: 'All products',
     email: 'hello@clothify.vn',
     phone: '1900 1234',
     address: 'Hanoi, Vietnam',
     crafted: 'Crafted with care for a better shopping experience',
+  },
+  company: {
+    sectionTitle: 'About Clothify',
+    nav: {
+      ourStory: 'Our story',
+      vision: 'Vision',
+      mission: 'Mission',
+      coreValues: 'Core values',
+    },
+    ourStory: {
+      title: 'Our story',
+      subtitle: 'From a passion for fashion to a brand people trust',
+      paragraphs: [
+        'Clothify began with a simple belief: everyone deserves to look and feel great every day — without sacrificing quality or comfort. In 2020 we started in a small studio in Hanoi, hand-picking fabrics and refining every stitch to create pieces that fit well and last.',
+        'From first orders on social media, Clothify grew through a community that loves thoughtful style. We do not just sell clothes — we tell stories of confident, intentional living. Every collection is curated to balance contemporary trends with lasting value.',
+        'Today Clothify serves thousands of customers across Vietnam. Our scale has changed; our founding spirit has not: listen carefully, sweat the details, and put your experience first.',
+      ],
+      quote:
+        'Fashion is not only what you wear — it is how you choose to show up in the world.',
+      quoteAuthor: 'The Clothify founding team',
+      milestonesTitle: 'Milestones',
+      milestones: [
+        { year: '2020', label: 'Founded in Hanoi with our first collection' },
+        { year: '2022', label: 'Launched the Clothify.vn e-commerce platform' },
+        { year: '2024', label: 'Partnered with 50+ domestic brands and makers' },
+        { year: '2026', label: 'Serving thousands of customers nationwide' },
+      ],
+    },
+    vision: {
+      title: 'Vision',
+      subtitle: 'Toward a sustainable, trusted future for fashion',
+      lead: 'To become Vietnam’s leading online fashion brand — where style meets integrity.',
+      paragraphs: [
+        'We imagine shopping for clothes that feels transparent, easy, and inspiring. Every product on Clothify reflects our commitment to quality, clear sourcing, and environmental responsibility.',
+        'Long term, we want to help shape Vietnamese fashion culture: proud of local design, open to global trends, and always centered on people — customers and makers alike.',
+      ],
+      pillars: [
+        {
+          title: 'Lead on experience',
+          description: 'Smooth online shopping, fast delivery, and caring support at every step.',
+        },
+        {
+          title: 'Meaningful fashion',
+          description: 'Durable materials and timeless design over throwaway trends.',
+        },
+        {
+          title: 'Connected community',
+          description: 'A place to share style inspiration and learn from one another.',
+        },
+      ],
+    },
+    mission: {
+      title: 'Mission',
+      subtitle: 'What we do every day for you',
+      lead: 'Deliver high-quality fashion at fair prices and a shopping experience you can rely on.',
+      commitments: [
+        {
+          title: 'Curate with care',
+          description:
+            'Every item passes strict checks on fabric, fit, and durability before it reaches you.',
+        },
+        {
+          title: 'Transparent value',
+          description:
+            'Fair pricing without gimmicks or hidden fees. You always know what you are paying for.',
+        },
+        {
+          title: 'Dedicated service',
+          description:
+            'From size advice to post-purchase support, our team is ready to help.',
+        },
+        {
+          title: 'Deliver on time',
+          description:
+            'Careful packing, safe shipping, and clear order updates — because your time matters.',
+        },
+      ],
+    },
+    coreValues: {
+      title: 'Core values',
+      subtitle: 'The principles behind every decision at Clothify',
+      items: [
+        {
+          title: 'Quality first',
+          description:
+            'We never compromise on materials or construction. Every piece should be worth wearing again and again.',
+        },
+        {
+          title: 'Customer at the center',
+          description:
+            'Improvements start with your feedback. Your satisfaction is our greatest measure of success.',
+        },
+        {
+          title: 'Honesty & transparency',
+          description:
+            'Clear product information, open policies, and promises kept — that is how we earn trust.',
+        },
+        {
+          title: 'Responsible sustainability',
+          description:
+            'Ethical sourcing, less packaging waste, and choices that last beyond a single season.',
+        },
+        {
+          title: 'Continuous innovation',
+          description:
+            'We keep evolving trends, technology, and processes to improve how you shop.',
+        },
+        {
+          title: 'Community connection',
+          description:
+            'Clothify is more than a store — it is where fashion lovers share, learn, and inspire.',
+        },
+      ],
+    },
   },
   auth: {
     welcomeBack: 'Welcome back',

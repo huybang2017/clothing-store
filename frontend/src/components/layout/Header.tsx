@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { ShoppingBag, LogOut, User, LayoutGrid } from 'lucide-react';
+import { ChevronDown, ShoppingBag, LogOut, User, LayoutGrid } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { Button } from '@/components/ui/button';
 import { useGetCartQuery } from '@/store/api/cartApi';
@@ -16,6 +16,13 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: ROUTES.home, label: vi.nav.home },
   { href: ROUTES.shop, label: vi.nav.shop },
+];
+
+const aboutLinks = [
+  { href: ROUTES.company.ourStory, label: vi.company.nav.ourStory },
+  { href: ROUTES.company.vision, label: vi.company.nav.vision },
+  { href: ROUTES.company.mission, label: vi.company.nav.mission },
+  { href: ROUTES.company.coreValues, label: vi.company.nav.coreValues },
 ];
 
 export function Header() {
@@ -37,6 +44,8 @@ export function Header() {
     dispatch(logout());
     router.push(ROUTES.home);
   };
+
+  const isAboutActive = pathname.startsWith('/ve-chung-toi');
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
@@ -65,6 +74,38 @@ export function Header() {
               {label}
             </Link>
           ))}
+          <div className="group relative">
+            <Link
+              href={ROUTES.company.ourStory}
+              className={cn(
+                'flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                isAboutActive
+                  ? 'bg-blue-50 text-blue-600'
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
+              )}
+            >
+              {vi.nav.about}
+              <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-0 top-full z-50 pt-1 opacity-0 transition-all group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="min-w-[11rem] rounded-lg border border-slate-200 bg-white py-1 shadow-lg">
+                {aboutLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={cn(
+                      'block px-4 py-2 text-sm transition-colors hover:bg-slate-50',
+                      pathname === href
+                        ? 'font-medium text-blue-600'
+                        : 'text-slate-600 hover:text-slate-900',
+                    )}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           {mounted && isAuthenticated && (
             <>
             <Link
