@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -17,7 +17,7 @@ import {
   useStartGuestConversationMutation,
 } from '@/store/api/chatApi';
 import type { ChatMessage } from '@/types/api';
-import { getOrCreateGuestId, getGuestId } from '@/lib/chat-guest';
+import { clearGuestId, getOrCreateGuestId, getGuestId } from '@/lib/chat-guest';
 import { getChatSocket, disconnectChatSocket } from '@/services/websocket/chat.socket';
 import { ROUTES } from '@/constants/routes';
 import { vi } from '@/lib/i18n';
@@ -39,6 +39,7 @@ export function ChatWidget() {
   const [linkGuest] = useLinkGuestConversationMutation();
   const [sendMessage] = useSendMessageMutation();
   const [sendGuestMessage] = useSendGuestMessageMutation();
+  const authConvoSynced = useRef(false);
 
   const { data: authHistory } = useGetMessagesQuery(conversationId!, {
     skip: !conversationId || !open || !isAuthenticated,
@@ -94,28 +95,53 @@ export function ChatWidget() {
     localStorage.setItem(CONVO_KEY, id);
   }, []);
 
-  const ensureConversation = useCallback(async () => {
-    if (conversationId) return conversationId;
-
-    if (isAuthenticated) {
-      const gid = getGuestId();
-      if (gid) {
-        try {
-          const linked = await linkGuest({ guestId: gid }).unwrap();
-          const id = linked.data?.id;
-          if (id) {
-            persistConversation(id);
-            return id;
-          }
-        } catch {
-          /* fallback start */
+  const ensureAuthenticatedConversation = useCallback(async () => {
+    const gid = getGuestId();
+    if (gid) {
+      try {
+        const linked = await linkGuest({ guestId: gid }).unwrap();
+        const id = linked.data?.id;
+        if (id) {
+          persistConversation(id);
+          clearGuestId();
+          return id;
         }
+      } catch {
+        /* fall through to startConversation */
       }
-      const res = await startConversation().unwrap();
-      const id = res.data?.id;
-      if (id) persistConversation(id);
-      return id ?? null;
     }
+
+    const res = await startConversation().unwrap();
+    const id = res.data?.id;
+    if (id) persistConversation(id);
+    return id ?? null;
+  }, [linkGuest, startConversation, persistConversation]);
+
+  useEffect(() => {
+    if (!mounted || !isAuthenticated) {
+      authConvoSynced.current = false;
+      return undefined;
+    }
+
+    let cancelled = false;
+    void ensureAuthenticatedConversation().then((id) => {
+      if (!cancelled && id) authConvoSynced.current = true;
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [mounted, isAuthenticated, ensureAuthenticatedConversation]);
+
+  const ensureConversation = useCallback(async () => {
+    if (isAuthenticated) {
+      if (conversationId && authConvoSynced.current) return conversationId;
+      const id = await ensureAuthenticatedConversation();
+      if (id) authConvoSynced.current = true;
+      return id;
+    }
+
+    if (conversationId) return conversationId;
 
     const gid = guestId ?? getOrCreateGuestId();
     setGuestId(gid);
@@ -127,8 +153,7 @@ export function ChatWidget() {
     conversationId,
     isAuthenticated,
     guestId,
-    linkGuest,
-    startConversation,
+    ensureAuthenticatedConversation,
     startGuestConversation,
     persistConversation,
   ]);
