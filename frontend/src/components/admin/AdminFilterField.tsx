@@ -21,19 +21,19 @@ export function AdminFilterField({
   return (
     <div
       className={cn(
-        'admin-filter-field flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2',
+        'admin-filter-field flex min-w-0 flex-col gap-1.5',
         className,
       )}
     >
       <Label
         className={cn(
-          'shrink-0 text-sm text-slate-600 sm:whitespace-nowrap',
+          'shrink-0 text-xs font-medium text-slate-500',
           labelClassName,
         )}
       >
         {label}
       </Label>
-      <div className={cn('w-full min-w-0 sm:w-auto sm:min-w-[8.75rem] sm:shrink-0', controlClassName)}>
+      <div className={cn('w-full min-w-[8.75rem]', controlClassName)}>
         {children}
       </div>
     </div>

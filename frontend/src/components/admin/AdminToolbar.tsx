@@ -51,9 +51,9 @@ export function AdminToolbar({
 
   return (
     <div className="sticky top-0 z-20 -mx-1 mb-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative min-w-0 flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <Input
             className="h-10 pl-9"
             placeholder={searchPlaceholder}
@@ -62,7 +62,11 @@ export function AdminToolbar({
             onKeyDown={(e) => e.key === 'Enter' && onSearchSubmit?.()}
           />
         </div>
-        <div className="flex flex-wrap items-center gap-3">
+        {actions && <div className="flex shrink-0 items-center gap-2">{actions}</div>}
+      </div>
+
+      {(sortOptions || filters) && (
+        <div className="flex flex-wrap items-end gap-3 border-t border-slate-100 pt-3">
           {sortOptions && onSortChange && (
             <AdminFilterField label={vi.admin.sort} controlClassName="min-w-[11rem]">
               <Select
@@ -82,7 +86,7 @@ export function AdminToolbar({
             <>
               <Button
                 variant="outline"
-                className="h-10 xl:hidden"
+                className="h-10 lg:hidden"
                 onClick={() => setMobileFilters(true)}
               >
                 <Filter className="mr-2 h-4 w-4" />
@@ -93,12 +97,11 @@ export function AdminToolbar({
                   </span>
                 )}
               </Button>
-              <div className="hidden flex-wrap items-center gap-3 xl:flex">{filters}</div>
+              <div className="hidden flex-wrap items-end gap-3 lg:flex">{filters}</div>
             </>
           )}
-          {actions}
         </div>
-      </div>
+      )}
       {filterCount > 0 && onClearFilters && (
         <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={onClearFilters}>
           {vi.admin.clearFilters}
