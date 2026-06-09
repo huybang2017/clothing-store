@@ -41,7 +41,7 @@ export class AccountService {
 
   async listAddresses(userId: string) {
     const rows = await this.addressRepository.findByUser(userId);
-    return successResponse(rows.map(toAddressResponse), 'Danh sách địa chỉ');
+    return successResponse(rows.map(toAddressResponse), 'Address list');
   }
 
   async createAddress(userId: string, dto: CreateAddressDto) {
@@ -60,12 +60,12 @@ export class AccountService {
       street: dto.street,
       isDefault: dto.isDefault ?? false,
     });
-    return successResponse(toAddressResponse(row), 'Đã thêm địa chỉ');
+    return successResponse(toAddressResponse(row), 'Address added');
   }
 
   async updateAddress(userId: string, id: string, dto: UpdateAddressDto) {
     const existing = await this.addressRepository.findByIdForUser(id, userId);
-    if (!existing) throw new BusinessException('Không tìm thấy địa chỉ', 404);
+    if (!existing) throw new BusinessException('Address not found', 404);
 
     if (dto.isDefault) {
       await this.addressRepository.clearDefaultForUser(userId);
@@ -81,13 +81,13 @@ export class AccountService {
       street: dto.street,
       isDefault: dto.isDefault,
     });
-    return successResponse(toAddressResponse(row!), 'Đã cập nhật địa chỉ');
+    return successResponse(toAddressResponse(row!), 'Address updated');
   }
 
   async deleteAddress(userId: string, id: string) {
     const existing = await this.addressRepository.findByIdForUser(id, userId);
-    if (!existing) throw new BusinessException('Không tìm thấy địa chỉ', 404);
+    if (!existing) throw new BusinessException('Address not found', 404);
     await this.addressRepository.delete(id, userId);
-    return successResponse(null, 'Đã xóa địa chỉ');
+    return successResponse(null, 'Address deleted');
   }
 }

@@ -75,7 +75,7 @@ export class OrderRepository extends BaseRepository {
         id: randomUUID(),
         orderId: order.id,
         status: order.status ?? 'pending',
-        note: 'Đơn hàng đã được tạo',
+        note: 'Order placed',
       });
     });
     return (await this.findById(order.id))!;

@@ -55,7 +55,7 @@ export function OrderDetailView({ orderId }: OrderDetailViewProps) {
     try {
       await cancelOrder({ id: orderId, reason }).unwrap();
       setCancelOpen(false);
-      setNotice('Đã hủy đơn hàng thành công');
+      setNotice('Order cancelled successfully');
       refetch();
     } catch {
       setNotice(vi.common.error);
@@ -159,13 +159,13 @@ export function OrderDetailView({ orderId }: OrderDetailViewProps) {
               <div>
                 <p className="text-xs text-slate-500">{vi.order.paymentMethod}</p>
                 <p className="text-sm font-medium text-slate-900">
-                  {order.paymentMethod ?? 'Thanh toán khi nhận hàng'}
+                  {order.paymentMethod ?? 'Cash on delivery'}
                 </p>
               </div>
               <div>
                 <p className="text-xs text-slate-500">{vi.order.paymentStatus}</p>
                 <p className="text-sm font-medium text-slate-900">
-                  {order.paymentStatus ?? 'Chưa thanh toán'}
+                  {order.paymentStatus ?? 'Unpaid'}
                 </p>
               </div>
             </CardContent>

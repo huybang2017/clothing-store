@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export default function ChangePasswordPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-12">Đang tải...</div>}>
+    <Suspense fallback={<div className="mx-auto max-w-7xl px-4 py-12">Loading...</div>}>
       <ChangePasswordPageClient />
     </Suspense>
   );

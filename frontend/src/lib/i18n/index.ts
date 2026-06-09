@@ -1,4 +1,4 @@
-import { vi } from './vi';
+import { en } from './en';
 
 export {
   formatVND,
@@ -8,9 +8,9 @@ export {
   formatNumber,
   formatVoucherValue,
 } from './format';
-export { vi };
+export { en, en as vi };
 
-/** Simple typed accessor — vi only for now (Vietnam market) */
-export function t<K extends keyof typeof vi>(section: K): (typeof vi)[K] {
-  return vi[section];
+/** Typed accessor for UI strings */
+export function t<K extends keyof typeof en>(section: K): (typeof en)[K] {
+  return en[section];
 }

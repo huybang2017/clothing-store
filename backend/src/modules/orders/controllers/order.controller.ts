@@ -100,7 +100,7 @@ export class OrderController {
       id,
       userId,
       role,
-      dto ?? { reason: 'Khách hàng hủy đơn hàng' },
+      dto ?? { reason: 'Cancelled by customer' },
     );
   }
 

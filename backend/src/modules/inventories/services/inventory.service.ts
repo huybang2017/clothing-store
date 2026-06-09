@@ -76,7 +76,7 @@ export class InventoryService {
 
   async getFilterOptions() {
     const options = await this.variantRepository.getShopFilterOptions();
-    return successResponse(options, 'Tùy chọn lọc biến thể');
+    return successResponse(options, 'Variant filter options');
   }
 
   async findAll(query: InventoryQueryDto) {
@@ -101,14 +101,14 @@ export class InventoryService {
     if (colorIds && !colorIds.length) {
       return successResponse(
         [],
-        'Danh sách tồn kho',
+        'Inventory list',
         paginationMeta(page, limit, 0),
       );
     }
     if (sizeIds && !sizeIds.length) {
       return successResponse(
         [],
-        'Danh sách tồn kho',
+        'Inventory list',
         paginationMeta(page, limit, 0),
       );
     }
@@ -120,7 +120,7 @@ export class InventoryService {
       if (!variantIdFilter.length) {
         return successResponse(
           [],
-          'Danh sách tồn kho',
+          'Inventory list',
           paginationMeta(page, limit, 0),
         );
       }
@@ -243,7 +243,7 @@ export class InventoryService {
 
     return successResponse(
       mapped,
-      'Danh sách tồn kho',
+      'Inventory list',
       paginationMeta(page, limit, Number(countResult[0]?.count ?? 0)),
     );
   }
@@ -268,11 +268,11 @@ export class InventoryService {
     }
 
     const product = await this.productRepository.findById(productId);
-    if (!product) throw new BusinessException('Không tìm thấy sản phẩm', 404);
+    if (!product) throw new BusinessException('Product not found', 404);
     const full = await this.productRepository.findById(productId);
     return successResponse(
       ProductMapper.toResponse(full!),
-      'Đã cập nhật tồn kho',
+      'Stock updated',
     );
   }
 }

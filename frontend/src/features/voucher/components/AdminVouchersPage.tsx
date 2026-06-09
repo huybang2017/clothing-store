@@ -147,7 +147,7 @@ export function AdminVouchersPage() {
         search={searchInput}
         onSearchChange={setSearchInput}
         onSearchSubmit={() => push({ search: searchInput, page: '1' })}
-        searchPlaceholder="Mã, tên mã giảm giá..."
+        searchPlaceholder="Code, voucher name..."
         sortValue={sort}
         sortOptions={[
           { value: 'newest', label: vi.admin.sortNewest },

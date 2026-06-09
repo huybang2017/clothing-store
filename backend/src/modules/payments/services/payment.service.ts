@@ -7,7 +7,7 @@ import {
   PAYMENT_METHOD_LABELS,
 } from '../../../common/constants/payment.constants';
 import { OrderStatus } from '../../../common/constants';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import { BusinessException } from '../../../common/exceptions/business.exception';
 import {
   paginationMeta,
@@ -85,7 +85,7 @@ export class PaymentService {
       await this.paymentRepository.findByIdempotencyKey(idempotencyKey);
     if (existing) {
       throw new BusinessException(
-        'Thanh toán đã được khởi tạo cho đơn hàng này',
+        'Payment has already been initialized for this order',
       );
     }
 
@@ -116,7 +116,7 @@ export class PaymentService {
     await this.paymentRepository.addHistory(
       payment.id,
       status,
-      `Khởi tạo thanh toán: ${PAYMENT_METHOD_LABELS[method]}`,
+      `Payment initialized: ${PAYMENT_METHOD_LABELS[method]}`,
     );
 
     const methodSlug: Record<PaymentMethod, string> = {
@@ -141,14 +141,14 @@ export class PaymentService {
       await this.paymentRepository.addHistory(
         payment.id,
         PaymentStatus.PENDING,
-        'Chờ khách hàng chuyển khoản',
+        'Awaiting customer bank transfer',
       );
     } else if (method === PaymentMethod.VNPAY) {
       if (this.vnpay.isConfigured()) {
         redirectUrl = this.vnpay.createPaymentUrl({
           amount,
           orderId,
-          orderInfo: `Thanh toan don hang ${orderNumber}`,
+          orderInfo: `Order payment ${orderNumber}`,
           ipAddr: clientIp,
           txnRef: transactionId,
         });
@@ -162,7 +162,7 @@ export class PaymentService {
         const momoRes = await this.momo.createPaymentRequest({
           amount,
           orderId,
-          orderInfo: `Thanh toan ${orderNumber}`,
+          orderInfo: `Payment ${orderNumber}`,
           requestId,
         });
         redirectUrl = momoRes.payUrl;
@@ -214,7 +214,7 @@ export class PaymentService {
     await this.orderRepository.updateStatus(
       payment.orderId,
       OrderStatus.CONFIRMED,
-      'Thanh toán thành công — đơn hàng đã xác nhận',
+      'Payment successful — order confirmed',
     );
     await this.orderRepository.update(payment.orderId, {
       paymentStatus: 'paid',
@@ -246,9 +246,9 @@ export class PaymentService {
 
   async refundPayment(paymentId: string, note?: string) {
     const payment = await this.paymentRepository.findById(paymentId);
-    if (!payment) throw new BusinessException('Không tìm thấy thanh toán', 404);
+    if (!payment) throw new BusinessException('Payment not found', 404);
     if (payment.paymentStatus !== PaymentStatus.PAID) {
-      throw new BusinessException('Chỉ hoàn tiền được thanh toán đã hoàn tất');
+      throw new BusinessException('Only completed payments can be refunded');
     }
 
     await this.paymentRepository.update(paymentId, {
@@ -257,7 +257,7 @@ export class PaymentService {
     await this.paymentRepository.addHistory(
       paymentId,
       PaymentStatus.REFUNDED,
-      note ?? 'Admin hoàn tiền',
+      note ?? 'Refunded by admin',
     );
     await this.orderRepository.update(payment.orderId, {
       paymentStatus: 'refunded',
@@ -270,7 +270,7 @@ export class PaymentService {
       PaymentMapper.toResponse(updated!, history, {
         orderNumber: order?.orderNumber,
       }),
-      'Đã hoàn tiền',
+      'Refunded',
     );
   }
 
@@ -296,7 +296,7 @@ export class PaymentService {
       return {
         success: false,
         orderId: null,
-        message: 'Không tìm thấy thanh toán',
+        message: 'Payment not found',
       };
     }
 
@@ -308,32 +308,32 @@ export class PaymentService {
           success: false,
           orderId: payment.orderId,
           orderNumber: order?.orderNumber,
-          message: 'Số tiền thanh toán không khớp',
+          message: 'Payment amount mismatch',
         };
       }
       await this.markPaid(
         payment,
         query.vnp_TransactionNo ?? null,
-        'Thanh toán VNPay thành công',
+        'VNPay payment successful',
         query,
       );
       return {
         success: true,
         orderId: payment.orderId,
         orderNumber: order?.orderNumber,
-        message: 'Thanh toán thành công',
+        message: 'Payment successful',
       };
     }
 
     await this.markFailed(
       payment.id,
-      `VNPay từ chối: mã ${verified.responseCode}`,
+      `VNPay declined: code ${verified.responseCode}`,
     );
     return {
       success: false,
       orderId: payment.orderId,
       orderNumber: order?.orderNumber,
-      message: 'Thanh toán thất bại',
+      message: 'Payment failed',
     };
   }
 
@@ -358,30 +358,30 @@ export class PaymentService {
       await this.markPaid(
         payment,
         body.transId ?? null,
-        'Thanh toán MoMo thành công',
+        'MoMo payment successful',
         body,
       );
       return { resultCode: 0, message: 'Success' };
     }
 
-    await this.markFailed(payment.id, `MoMo thất bại: ${body.message ?? ''}`);
+    await this.markFailed(payment.id, `MoMo failed: ${body.message ?? ''}`);
     return { resultCode: 1001, message: 'Failed' };
   }
 
   async confirmBankTransfer(paymentId: string, adminNote?: string) {
     const payment = await this.paymentRepository.findById(paymentId);
-    if (!payment) throw new BusinessException('Không tìm thấy thanh toán', 404);
+    if (!payment) throw new BusinessException('Payment not found', 404);
     if (payment.paymentMethod !== PaymentMethod.BANK_TRANSFER) {
-      throw new BusinessException('Chỉ xác nhận được thanh toán chuyển khoản');
+      throw new BusinessException('Only bank transfer payments can be confirmed');
     }
     if (payment.paymentStatus === PaymentStatus.PAID) {
-      throw new BusinessException('Thanh toán đã được xác nhận');
+      throw new BusinessException('Payment already confirmed');
     }
 
     await this.markPaid(
       payment,
       `BANK-${Date.now()}`,
-      adminNote ?? 'Admin xác nhận đã nhận chuyển khoản',
+      adminNote ?? 'Admin confirmed bank transfer received',
     );
 
     const updated = await this.paymentRepository.findById(paymentId);
@@ -391,14 +391,14 @@ export class PaymentService {
       PaymentMapper.toResponse(updated!, history, {
         orderNumber: order?.orderNumber,
       }),
-      'Đã xác nhận thanh toán',
+      'Payment confirmed',
     );
   }
 
   async findByOrder(orderId: string, userId: string, role: string) {
     await this.orderService.findOne(orderId, userId, role);
     const payment = await this.paymentRepository.findByOrderId(orderId);
-    if (!payment) throw new BusinessException('Không tìm thấy thanh toán', 404);
+    if (!payment) throw new BusinessException('Payment not found', 404);
     const history = await this.paymentRepository.getHistory(payment.id);
     const order = await this.orderRepository.findById(orderId);
     return successResponse(
@@ -419,7 +419,7 @@ export class PaymentService {
 
   async getStats() {
     const stats = await this.paymentRepository.getStats();
-    return successResponse(stats, 'Thống kê thanh toán');
+    return successResponse(stats, 'Payment statistics');
   }
 
   async findAll(query: PaymentQueryDto) {
@@ -437,14 +437,14 @@ export class PaymentService {
     );
     return successResponse(
       mapped,
-      'Đã tải danh sách thanh toán',
+      'Payments retrieved',
       paginationMeta(page, limit, total),
     );
   }
 
   async findOne(id: string) {
     const payment = await this.paymentRepository.findById(id);
-    if (!payment) throw new BusinessException('Không tìm thấy thanh toán', 404);
+    if (!payment) throw new BusinessException('Payment not found', 404);
     const history = await this.paymentRepository.getHistory(payment.id);
     const order = await this.orderRepository.findById(payment.orderId);
     return successResponse(
@@ -456,22 +456,22 @@ export class PaymentService {
 
   async demoConfirmGateway(orderId: string, userId: string) {
     const payment = await this.paymentRepository.findByOrderId(orderId);
-    if (!payment) throw new BusinessException('Không tìm thấy thanh toán', 404);
+    if (!payment) throw new BusinessException('Payment not found', 404);
     const order = await this.orderRepository.findById(orderId);
     if (!order || order.userId !== userId) {
       throw new BusinessException(MSG.ORDER_NOT_FOUND, 404);
     }
     if (payment.paymentStatus === PaymentStatus.PAID) {
-      return successResponse({ orderId }, 'Đã thanh toán');
+      return successResponse({ orderId }, 'Already paid');
     }
     await this.markPaid(
       payment,
       `DEMO-${Date.now()}`,
-      'Xác nhận thanh toán demo',
+      'Demo payment confirmed',
     );
     return successResponse(
       { orderId, success: true },
-      'Thanh toán demo thành công',
+      'Demo payment successful',
     );
   }
 }

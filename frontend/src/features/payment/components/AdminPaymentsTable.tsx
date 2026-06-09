@@ -37,11 +37,11 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 const STATUS_OPTIONS = [
   { value: '', label: vi.admin.all },
-  { value: 'PENDING', label: 'Chờ thanh toán' },
-  { value: 'PROCESSING', label: 'Đang xử lý' },
-  { value: 'PAID', label: 'Đã thanh toán' },
-  { value: 'FAILED', label: 'Thất bại' },
-  { value: 'REFUNDED', label: 'Đã hoàn tiền' },
+  { value: 'PENDING', label: 'Pending' },
+  { value: 'PROCESSING', label: 'Processing' },
+  { value: 'PAID', label: 'Paid' },
+  { value: 'FAILED', label: 'Failed' },
+  { value: 'REFUNDED', label: 'Refunded' },
 ];
 
 const METHOD_OPTIONS: { value: PaymentMethod | ''; label: string }[] = [
@@ -97,12 +97,12 @@ export function AdminPaymentsTable() {
     const rows = payments.map((p) =>
       [p.orderNumber, p.paymentMethodLabel, p.paymentStatusLabel, p.amount, p.transactionId, p.createdAt].join(','),
     );
-    const csv = ['Ma don,Phuong thuc,Trang thai,So tien,Ma GD,Ngay\n', ...rows].join('\n');
+    const csv = ['Order,Method,Status,Amount,Transaction ID,Date\n', ...rows].join('\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `thanh-toan-${Date.now()}.csv`;
+    a.download = `payments-${Date.now()}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -135,7 +135,7 @@ export function AdminPaymentsTable() {
         search={searchInput}
         onSearchChange={setSearchInput}
         onSearchSubmit={() => push({ search: searchInput, page: '1' })}
-        searchPlaceholder={`${vi.admin.transactionId}, mã đơn...`}
+        searchPlaceholder={`${vi.admin.transactionId}, order code...`}
         filterCount={filterCount}
         onClearFilters={() =>
           push({ status: '', method: '', dateFrom: '', dateTo: '', page: '1' })

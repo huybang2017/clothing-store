@@ -19,7 +19,7 @@ export class ChatService {
     const rows = await this.chatRepository.listConversations();
     const data = rows.map((row) =>
       ChatMapper.toConversation(row.conversation, {
-        customerName: row.customerName ?? (row.conversation.guestId ? 'Khách (chưa đăng nhập)' : 'Khách'),
+        customerName: row.customerName ?? (row.conversation.guestId ? 'Guest (not signed in)' : 'Guest'),
         customerEmail: row.customerEmail,
         lastMessage: row.lastMessage,
         unreadCount: row.unreadCount,
@@ -32,7 +32,7 @@ export class ChatService {
     const conversation =
       await this.chatRepository.findConversationById(conversationId);
     if (!conversation) {
-      throw new BusinessException('Không tìm thấy hội thoại', 404);
+      throw new BusinessException('Conversation not found', 404);
     }
     const rows = await this.chatRepository.getMessages(conversationId);
     return successResponse(rows.map(ChatMapper.toMessage));
@@ -91,7 +91,7 @@ export class ChatService {
       dto.conversationId,
     );
     if (!conversation) {
-      throw new BusinessException('Không tìm thấy hội thoại', 404);
+      throw new BusinessException('Conversation not found', 404);
     }
 
     if (senderRole === 'customer') {
@@ -99,7 +99,7 @@ export class ChatService {
         conversation.customerId === senderId ||
         conversation.guestId === senderId;
       if (!allowed) {
-        throw new BusinessException('Không có quyền gửi tin nhắn', 403);
+        throw new BusinessException('Not allowed to send messages', 403);
       }
     }
 
@@ -141,11 +141,11 @@ export class ChatService {
     const conversation =
       await this.chatRepository.findConversationById(conversationId);
     if (!conversation) {
-      throw new BusinessException('Không tìm thấy hội thoại', 404);
+      throw new BusinessException('Conversation not found', 404);
     }
     if (userId && conversation.customerId === userId) return;
     if (guestId && conversation.guestId === guestId) return;
     if (!userId && !guestId) return;
-    throw new BusinessException('Không có quyền xem hội thoại', 403);
+    throw new BusinessException('Not allowed to view conversation', 403);
   }
 }

@@ -40,14 +40,14 @@ export class UploadsController {
   )
   async uploadImage(@UploadedFile() file: Express.Multer.File | undefined) {
     if (!file?.buffer?.length) {
-      throw new BadRequestException('File ảnh không hợp lệ');
+      throw new BadRequestException('Invalid image file');
     }
     if (!file.mimetype?.startsWith('image/')) {
-      throw new BadRequestException('Chỉ chấp nhận file ảnh');
+      throw new BadRequestException('Only image files are allowed');
     }
 
     const { imageUrl } = await this.uploads.uploadImage(file.buffer);
 
-    return successResponse({ imageUrl }, 'Tải ảnh thành công');
+    return successResponse({ imageUrl }, 'Image uploaded successfully');
   }
 }

@@ -101,7 +101,7 @@ export default function AdminSettingsPage() {
       {isError && <ApiErrorAlert />}
       {saved && (
         <p className="rounded-lg bg-green-50 px-4 py-2 text-sm text-green-800">
-          {vi.common.success}: Đã lưu cài đặt
+          {vi.common.success}: Settings saved
         </p>
       )}
 
@@ -110,7 +110,7 @@ export default function AdminSettingsPage() {
           <CardTitle>{vi.admin.storeInfo}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 sm:grid-cols-2">
-          <FormField label="Tên cửa hàng">
+          <FormField label="Store name">
             <Input value={form.storeName} onChange={(e) => set('storeName', e.target.value)} />
           </FormField>
           <FormField label="Logo (URL)">
@@ -122,7 +122,7 @@ export default function AdminSettingsPage() {
           <FormField label={vi.account.phone}>
             <Input value={form.storePhone} onChange={(e) => set('storePhone', e.target.value)} />
           </FormField>
-          <FormField label="Địa chỉ" className="sm:col-span-2">
+          <FormField label="Address" className="sm:col-span-2">
             <Input value={form.storeAddress} onChange={(e) => set('storeAddress', e.target.value)} />
           </FormField>
           <Button
@@ -199,10 +199,10 @@ export default function AdminSettingsPage() {
           <CardTitle>{vi.admin.seoSettings}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <FormField label="Tiêu đề SEO">
+          <FormField label="SEO title">
             <Input value={form.seoTitle} onChange={(e) => set('seoTitle', e.target.value)} />
           </FormField>
-          <FormField label="Mô tả SEO">
+          <FormField label="SEO description">
             <textarea
               className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
               value={form.seoDescription}
@@ -210,8 +210,8 @@ export default function AdminSettingsPage() {
               rows={3}
             />
           </FormField>
-          <FormField label="Từ khóa">
-            <Input value={form.seoKeywords} onChange={(e) => set('seoKeywords', e.target.value)} placeholder="thời trang, áo thun..." />
+          <FormField label="Keywords">
+            <Input value={form.seoKeywords} onChange={(e) => set('seoKeywords', e.target.value)} placeholder="fashion, t-shirts..." />
           </FormField>
           <Button
             disabled={saving}

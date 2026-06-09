@@ -5,7 +5,7 @@ import {
   NestInterceptor,
 } from '@nestjs/common';
 import { Observable, map } from 'rxjs';
-import { MSG } from '../i18n/messages.vi';
+import { MSG } from '../i18n/messages.en';
 import { ApiResponse } from '../types/api-response.type';
 
 @Injectable()

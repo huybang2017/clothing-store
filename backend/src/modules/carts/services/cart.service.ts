@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import { BusinessException } from '../../../common/exceptions/business.exception';
 import { successResponse } from '../../../common/utils/api-response.util';
 import { ProductRepository } from '../../products/repositories/product.repository';
@@ -39,7 +39,7 @@ export class CartService {
 
     const variant = await this.variantRepository.findById(dto.variantId);
     if (!variant || variant.productId !== dto.productId || !variant.isActive) {
-      throw new BusinessException('Biến thể không hợp lệ', 404);
+      throw new BusinessException('Invalid variant', 404);
     }
 
     if (variant.stock < dto.quantity) {

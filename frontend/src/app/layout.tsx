@@ -16,15 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Clothify — Cửa hàng thời trang cao cấp',
-  description: 'Nền tảng thương mại điện tử thời trang dành cho thị trường Việt Nam',
+  title: 'Clothify — Premium Fashion Store',
+  description: 'Premium fashion e-commerce platform',
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <StoreProvider>
           <AuthHydrator>

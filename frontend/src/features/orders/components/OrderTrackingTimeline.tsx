@@ -68,7 +68,7 @@ export function OrderTrackingTimeline({
       : [];
 
   if (paymentStatus === 'paid' && steps.length) {
-    const hasPaid = steps.some((s) => (s as { note?: string }).note?.includes('Thanh toán'));
+    const hasPaid = steps.some((s) => (s as { note?: string }).note?.includes('Payment'));
     if (!hasPaid) {
       const confirmedIdx = steps.findIndex((s) => s.status === 'confirmed');
       const paidEntry: OrderStatusHistoryEntry = {

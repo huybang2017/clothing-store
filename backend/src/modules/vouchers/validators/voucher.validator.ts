@@ -1,5 +1,5 @@
 import { BusinessException } from '../../../common/exceptions/business.exception';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import { Voucher } from '../../../database/schema/vouchers';
 
 export class VoucherValidator {

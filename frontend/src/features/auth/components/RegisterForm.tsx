@@ -76,7 +76,7 @@ export function RegisterForm() {
       <CardContent className="p-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <FormField label={vi.auth.fullName} error={errors.fullName?.message}>
-            <Input placeholder="Nguyễn Văn A" error={!!errors.fullName} {...register('fullName')} />
+            <Input placeholder="John Doe" error={!!errors.fullName} {...register('fullName')} />
           </FormField>
           <FormField label={vi.auth.email} error={errors.email?.message}>
             <Input

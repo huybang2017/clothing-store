@@ -42,7 +42,7 @@ export function AdminHeader({ onMenuClick }: AdminHeaderProps) {
           size="icon"
           className="md:hidden"
           onClick={onMenuClick}
-          aria-label="Mở menu"
+          aria-label="Open menu"
         >
           <Menu className="h-5 w-5" />
         </Button>

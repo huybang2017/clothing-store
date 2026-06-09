@@ -23,7 +23,7 @@ export class UploadsService {
     );
     if (!configured) {
       throw new InternalServerErrorException(
-        'Cloudinary chưa được cấu hình. Thiết lập CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY và CLOUDINARY_API_SECRET.',
+        'Cloudinary is not configured. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.',
       );
     }
   }
@@ -37,7 +37,7 @@ export class UploadsService {
       const message =
         error instanceof Error ? error.message : 'Cloudinary upload failed';
       this.logger.error(`Cloudinary upload failed: ${message}`);
-      throw new InternalServerErrorException('Không thể tải ảnh lên Cloudinary');
+      throw new InternalServerErrorException('Unable to upload image to Cloudinary');
     }
   }
 }

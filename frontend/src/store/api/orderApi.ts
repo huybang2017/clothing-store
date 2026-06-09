@@ -94,7 +94,7 @@ export const orderApi = baseApi.injectEndpoints({
         const id = typeof arg === 'string' ? arg : arg.id;
         const body =
           typeof arg === 'string'
-            ? { reason: 'Hủy bởi quản trị viên' }
+            ? { reason: 'Cancelled by admin' }
             : { reason: arg.reason, note: arg.note };
         return {
           url: `/orders/${id}/cancel`,

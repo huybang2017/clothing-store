@@ -137,7 +137,7 @@ export function AdminCustomersPage() {
         search={searchInput}
         onSearchChange={setSearchInput}
         onSearchSubmit={() => push({ search: searchInput, page: '1' })}
-        searchPlaceholder="Tên, email, số điện thoại..."
+        searchPlaceholder="Name, email, phone..."
         filterCount={status ? 1 : 0}
         onClearFilters={() => push({ status: '', page: '1' })}
         filters={

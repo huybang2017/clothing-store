@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
 import { createHash, randomBytes, randomUUID } from 'crypto';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import { UserRole } from '../../../common/constants';
 import { successResponse } from '../../../common/utils/api-response.util';
 import { UserMapper } from '../../users/mappers/user.mapper';
@@ -74,7 +74,7 @@ export class AuthService {
     });
     return successResponse(
       UserMapper.toResponse(updated!),
-      'Đã cập nhật hồ sơ',
+      'Profile updated',
     );
   }
 
@@ -84,13 +84,13 @@ export class AuthService {
 
     const valid = await bcrypt.compare(dto.currentPassword, user.password);
     if (!valid) {
-      throw new BadRequestException('Mật khẩu hiện tại không đúng');
+      throw new BadRequestException('Current password is incorrect');
     }
 
     const hashed = await bcrypt.hash(dto.newPassword, 10);
     await this.userRepository.update(userId, { password: hashed });
     await this.refreshTokenRepository.revokeAllForUser(userId);
-    return successResponse(null, 'Đã đổi mật khẩu');
+    return successResponse(null, 'Password changed');
   }
 
   async refresh(refreshToken: string) {
@@ -98,7 +98,7 @@ export class AuthService {
     const stored = await this.refreshTokenRepository.findValidByHash(hash);
     if (!stored) {
       throw new UnauthorizedException(
-        'Phiên đăng nhập hết hạn, vui lòng đăng nhập lại',
+        'Session expired, please sign in again',
       );
     }
 
@@ -121,7 +121,7 @@ export class AuthService {
     } else {
       await this.refreshTokenRepository.revokeAllForUser(userId);
     }
-    return successResponse(null, 'Đã đăng xuất');
+    return successResponse(null, 'Signed out');
   }
 
   async makeAdmin(dto: MakeAdminDto) {

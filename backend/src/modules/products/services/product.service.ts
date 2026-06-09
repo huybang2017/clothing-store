@@ -5,7 +5,7 @@ import {
   ProductStatus,
 } from '../../../common/constants/product-status';
 import { BusinessException } from '../../../common/exceptions/business.exception';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import {
   paginationMeta,
   successResponse,
@@ -46,7 +46,7 @@ export class ProductService {
       resolved.maxPrice != null &&
       resolved.minPrice > resolved.maxPrice
     ) {
-      throw new BusinessException('Khoảng giá không hợp lệ');
+      throw new BusinessException('Invalid price range');
     }
 
     const { data, total } = await this.productRepository.findAll(resolved);
@@ -175,19 +175,19 @@ export class ProductService {
         });
         break;
       case ProductBulkAction.SET_CATEGORY:
-        if (!dto.categoryId) throw new BusinessException('Thiếu categoryId');
+        if (!dto.categoryId) throw new BusinessException('Missing categoryId');
         await this.productRepository.bulkUpdate(dto.ids, {
           categoryId: dto.categoryId,
         });
         break;
       case ProductBulkAction.SET_BRAND:
-        if (!dto.brandId) throw new BusinessException('Thiếu brandId');
+        if (!dto.brandId) throw new BusinessException('Missing brandId');
         await this.productRepository.bulkUpdate(dto.ids, {
           brandId: dto.brandId,
         });
         break;
     }
-    return successResponse(null, 'Đã cập nhật hàng loạt');
+    return successResponse(null, 'Bulk update completed');
   }
 
   async duplicate(id: string) {
@@ -199,7 +199,7 @@ export class ProductService {
     const newSlug = `${source.slug}-copy-${Date.now().toString(36).slice(-4)}`;
     const variantData = await this.variantRepository.loadProductVariantData(id);
     return this.create({
-      name: `${source.name} (bản sao)`,
+      name: `${source.name} (copy)`,
       slug: newSlug,
       description: source.description ?? undefined,
       price: Number(source.price),
@@ -270,7 +270,7 @@ export class ProductService {
 
   async create(dto: CreateProductDto) {
     const existing = await this.productRepository.findBySlug(dto.slug);
-    if (existing) throw new BusinessException('Slug đã tồn tại');
+    if (existing) throw new BusinessException('Slug already exists');
 
     const productId = randomUUID();
     const status = dto.status ?? ProductStatus.DRAFT;
@@ -394,7 +394,7 @@ export class ProductService {
     );
 
     const full = await this.loadFullProduct(id);
-    return successResponse(full, 'Đã lưu biến thể sản phẩm');
+    return successResponse(full, 'Product variants saved');
   }
 
   async bulkUpdateVariants(dto: BulkVariantUpdateDto) {
@@ -404,7 +404,7 @@ export class ProductService {
       stock: dto.stock,
       isActive: dto.isActive,
     });
-    return successResponse(null, 'Đã cập nhật hàng loạt');
+    return successResponse(null, 'Bulk update completed');
   }
 
   generateVariantCombinations(

@@ -1,26 +1,26 @@
-const vndFormatter = new Intl.NumberFormat('vi-VN', {
+const vndFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'VND',
 });
 
-const dateFormatter = new Intl.DateTimeFormat('vi-VN', {
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
   day: '2-digit',
-  month: '2-digit',
+  month: 'short',
   year: 'numeric',
 });
 
-const dateTimeFormatter = new Intl.DateTimeFormat('vi-VN', {
+const dateTimeFormatter = new Intl.DateTimeFormat('en-US', {
   day: '2-digit',
-  month: '2-digit',
+  month: 'short',
   year: 'numeric',
   hour: '2-digit',
   minute: '2-digit',
-  hour12: false,
+  hour12: true,
 });
 
-const numberFormatter = new Intl.NumberFormat('vi-VN');
+const numberFormatter = new Intl.NumberFormat('en-US');
 
-/** Format amount as Vietnamese Đồng (e.g. 299.000 ₫) */
+/** Format amount as VND (e.g. ₫299,000) */
 export function formatVND(amount: number): string {
   const value = Number(amount);
   if (!Number.isFinite(value)) return vndFormatter.format(0);
@@ -33,12 +33,12 @@ export function formatPriceRange(min: number, max: number): string {
   return `${formatVND(min)} - ${formatVND(max)}`;
 }
 
-/** DD/MM/YYYY */
+/** e.g. Jan 15, 2026 */
 export function formatDate(value: string | Date): string {
   return dateFormatter.format(new Date(value));
 }
 
-/** DD/MM/YYYY HH:mm (24h) */
+/** e.g. Jan 15, 2026, 3:30 PM */
 export function formatDateTime(value: string | Date): string {
   return dateTimeFormatter.format(new Date(value));
 }

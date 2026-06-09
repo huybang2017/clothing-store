@@ -13,12 +13,12 @@ const TIMELINE_STEPS: Order['status'][] = [
 ];
 
 const TIMELINE_NOTES: Record<string, string> = {
-  pending: 'Đơn hàng đã được tạo',
-  confirmed: 'Đơn hàng đã được xác nhận',
-  processing: 'Đơn hàng đang được đóng gói',
-  shipped: 'Đơn hàng đã bàn giao cho đơn vị vận chuyển',
-  delivered: 'Giao hàng thành công',
-  cancelled: 'Đơn hàng đã bị hủy',
+  pending: 'Order placed',
+  confirmed: 'Order confirmed',
+  processing: 'Order is being packed',
+  shipped: 'Order handed to carrier',
+  delivered: 'Delivered successfully',
+  cancelled: 'Order cancelled',
 };
 
 export class OrderMapper {
@@ -55,26 +55,26 @@ export class OrderMapper {
   static paymentLabels(order: Order) {
     const methodKey = (order.paymentMethod ?? 'cod').toLowerCase();
     const methodMap: Record<string, string> = {
-      cod: 'Thanh toán khi nhận hàng',
-      bank_transfer: 'Chuyển khoản ngân hàng',
+      cod: 'Cash on delivery',
+      bank_transfer: 'Bank transfer',
       vnpay: 'VNPay',
       momo: 'MoMo',
     };
     const statusMap: Record<string, string> = {
-      unpaid: 'Chưa thanh toán',
-      pending: 'Đang chờ xác nhận',
-      processing: 'Đang xử lý thanh toán',
-      paid: 'Đã thanh toán',
-      failed: 'Thanh toán thất bại',
-      cancelled: 'Đã hủy',
-      refunded: 'Đã hoàn tiền',
+      unpaid: 'Unpaid',
+      pending: 'Awaiting confirmation',
+      processing: 'Payment processing',
+      paid: 'Paid',
+      failed: 'Payment failed',
+      cancelled: 'Cancelled',
+      refunded: 'Refunded',
     };
     return {
       paymentMethod:
         methodMap[methodKey] ??
         order.paymentMethod ??
-        'Thanh toán khi nhận hàng',
-      paymentStatus: statusMap[order.paymentStatus] ?? 'Chưa thanh toán',
+        'Cash on delivery',
+      paymentStatus: statusMap[order.paymentStatus] ?? 'Unpaid',
     };
   }
 

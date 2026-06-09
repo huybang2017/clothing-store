@@ -160,7 +160,7 @@ export function AdminOrdersTable() {
         search={searchInput}
         onSearchChange={setSearchInput}
         onSearchSubmit={() => push({ search: searchInput, page: '1' })}
-        searchPlaceholder="Mã đơn, tên khách, số điện thoại..."
+        searchPlaceholder="Order code, customer name, phone..."
         sortValue={sort}
         sortOptions={sortOptions}
         onSortChange={(v) => push({ sort: v, page: '1' })}
@@ -204,10 +204,10 @@ export function AdminOrdersTable() {
                 onChange={(e) => push({ paymentStatus: e.target.value, page: '1' })}
               >
                 <option value="">{vi.admin.all}</option>
-                <option value="unpaid">Chưa thanh toán</option>
-                <option value="processing">Đang xử lý</option>
-                <option value="paid">Đã thanh toán</option>
-                <option value="refunded">Đã hoàn</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="processing">Processing</option>
+                <option value="paid">Paid</option>
+                <option value="refunded">Refunded</option>
               </Select>
             </AdminFilterField>
             <AdminFilterField label={vi.admin.paymentMethod}>
@@ -218,7 +218,7 @@ export function AdminOrdersTable() {
               >
                 <option value="">{vi.admin.all}</option>
                 <option value="COD">COD</option>
-                <option value="BANK_TRANSFER">Chuyển khoản</option>
+                <option value="BANK_TRANSFER">Bank transfer</option>
                 <option value="VNPAY">VNPay</option>
                 <option value="MOMO">MoMo</option>
               </Select>

@@ -121,7 +121,7 @@ export function AdminBrandsPage() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSave} className="grid max-w-lg gap-4 sm:grid-cols-2">
-              <FormField label="Tên thương hiệu">
+              <FormField label="Brand name">
                 <Input value={name} onChange={(e) => setName(e.target.value)} />
               </FormField>
               <FormField label={vi.admin.slug}>
@@ -140,7 +140,7 @@ export function AdminBrandsPage() {
         isError={isError}
         emptyMessage={vi.common.noData}
         columns={[
-          { key: 'name', header: 'Tên' },
+          { key: 'name', header: 'Name' },
           { key: 'slug', header: vi.admin.slug },
           {
             key: 'isActive',

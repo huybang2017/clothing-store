@@ -82,7 +82,7 @@ export class ReviewService {
     await this.reviewRepository.updateStatus(id, status);
     return successResponse(
       null,
-      status === 'approved' ? 'Đã duyệt' : 'Đã từ chối',
+      status === 'approved' ? 'Approved' : 'Rejected',
     );
   }
 }

@@ -9,8 +9,20 @@ import type { Product, ProductVariant } from '@/types/api';
 const COLOR_OPTION_NAMES = new Set(['Màu sắc', 'Color', 'Màu']);
 const SIZE_OPTION_NAMES = new Set(['Size', 'Kích thước', 'Kích cỡ']);
 
-/** Hex swatches for common Vietnamese color names */
+/** Hex swatches for common color names (English and legacy Vietnamese labels) */
 export const COLOR_SWATCHES: Record<string, string> = {
+  Black: '#1a1a1a',
+  White: '#f5f5f5',
+  Blue: '#2563eb',
+  Green: '#16a34a',
+  Red: '#dc2626',
+  Yellow: '#eab308',
+  Pink: '#ec4899',
+  Gray: '#6b7280',
+  Grey: '#6b7280',
+  Brown: '#78350f',
+  Beige: '#d6d3d1',
+  Cream: '#fef3c7',
   Đen: '#1a1a1a',
   Trắng: '#f5f5f5',
   Xanh: '#2563eb',
@@ -96,7 +108,7 @@ export function sortVariantOptionEntries(
     const bSize = isSizeOption(b);
     if (aSize && !bSize) return -1;
     if (!aSize && bSize) return 1;
-    return a.localeCompare(b, 'vi');
+    return a.localeCompare(b, 'en');
   });
 }
 

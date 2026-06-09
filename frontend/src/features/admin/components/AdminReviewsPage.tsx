@@ -86,9 +86,9 @@ export function AdminReviewsPage() {
                 onChange={(e) => push({ status: e.target.value, page: '1' })}
               >
                 <option value="">{vi.admin.all}</option>
-                <option value="pending">Chờ duyệt</option>
-                <option value="approved">Đã duyệt</option>
-                <option value="rejected">Từ chối</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
               </Select>
             </AdminFilterField>
             <AdminFilterField label={vi.admin.rating}>
@@ -114,8 +114,8 @@ export function AdminReviewsPage() {
         isError={isError}
         emptyMessage={vi.product.noReviews}
         columns={[
-          { key: 'productName', header: 'Sản phẩm' },
-          { key: 'userName', header: 'Khách hàng' },
+          { key: 'productName', header: 'Product' },
+          { key: 'userName', header: 'Customer' },
           {
             key: 'rating',
             header: vi.admin.rating,
@@ -126,16 +126,16 @@ export function AdminReviewsPage() {
             header: vi.common.status,
             render: (r) => {
               const labels: Record<string, string> = {
-                pending: 'Chờ duyệt',
-                approved: 'Đã duyệt',
-                rejected: 'Từ chối',
+                pending: 'Pending',
+                approved: 'Approved',
+                rejected: 'Rejected',
               };
               return <Badge>{labels[r.status] ?? r.status}</Badge>;
             },
           },
           {
             key: 'comment',
-            header: 'Nội dung',
+            header: 'Content',
             render: (r) => (
               <span className="line-clamp-2 max-w-xs text-slate-600">{r.comment ?? '—'}</span>
             ),

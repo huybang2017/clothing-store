@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 
 export class CreateAddressDto {
-  @ApiPropertyOptional({ example: 'Nhà' })
+  @ApiPropertyOptional({ example: 'Home' })
   @IsOptional()
   @IsString()
   @MaxLength(50)

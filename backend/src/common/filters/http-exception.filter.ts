@@ -7,7 +7,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { MSG } from '../i18n/messages.vi';
+import { MSG } from '../i18n/messages.en';
 
 function resolveExceptionMessage(exception: HttpException): string {
   const res = exception.getResponse();

@@ -39,7 +39,7 @@ export function ShopPagination({
   return (
     <nav
       className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between"
-      aria-label="Phân trang sản phẩm"
+      aria-label="Product pagination"
     >
       <p className="text-sm text-slate-600">
         {vi.shop.page} {currentPage} {vi.shop.of} {totalPages}

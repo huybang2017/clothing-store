@@ -22,12 +22,12 @@ import { ROUTES } from '@/constants/routes';
 import { PaymentMethodSelector } from '@/features/payment/components/PaymentMethodSelector';
 
 const schema = z.object({
-  fullName: z.string().min(2, 'Họ tên tối thiểu 2 ký tự'),
-  phone: z.string().min(8, 'Số điện thoại không hợp lệ'),
-  street: z.string().min(3, 'Vui lòng nhập số nhà và tên đường'),
-  ward: z.string().min(2, 'Vui lòng nhập phường/xã'),
-  district: z.string().min(2, 'Vui lòng nhập quận/huyện'),
-  province: z.string().min(2, 'Vui lòng nhập tỉnh/thành phố'),
+  fullName: z.string().min(2, 'Name must be at least 2 characters'),
+  phone: z.string().min(8, 'Invalid phone number'),
+  street: z.string().min(3, 'Please enter street address'),
+  ward: z.string().min(2, 'Please enter ward'),
+  district: z.string().min(2, 'Please enter district'),
+  province: z.string().min(2, 'Please enter province or city'),
   note: z.string().optional(),
   voucherCode: z.string().optional(),
   shippingFee: z.number().min(0),
@@ -182,16 +182,16 @@ export function CheckoutForm() {
               <Input error={!!errors.phone} {...register('phone')} />
             </FormField>
             <FormField label={vi.checkout.street} error={errors.street?.message}>
-              <Input placeholder="123 Nguyễn Huệ" error={!!errors.street} {...register('street')} />
+              <Input placeholder="123 Main Street" error={!!errors.street} {...register('street')} />
             </FormField>
             <FormField label={vi.checkout.ward} error={errors.ward?.message}>
-              <Input placeholder="Phường Bến Nghé" error={!!errors.ward} {...register('ward')} />
+              <Input placeholder="Ward 1" error={!!errors.ward} {...register('ward')} />
             </FormField>
             <FormField label={vi.checkout.district} error={errors.district?.message}>
-              <Input placeholder="Quận 1" error={!!errors.district} {...register('district')} />
+              <Input placeholder="District 1" error={!!errors.district} {...register('district')} />
             </FormField>
             <FormField label={vi.checkout.province} error={errors.province?.message}>
-              <Input placeholder="Thành phố Hồ Chí Minh" error={!!errors.province} {...register('province')} />
+              <Input placeholder="Ho Chi Minh City" error={!!errors.province} {...register('province')} />
             </FormField>
             <FormField label={vi.checkout.note}>
               <Input {...register('note')} />

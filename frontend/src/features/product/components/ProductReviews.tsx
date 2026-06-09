@@ -124,7 +124,7 @@ export function ProductReviews({ productId }: { productId: string }) {
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="font-medium text-slate-900">
-                  {(r as { userName?: string }).userName ?? 'Khách hàng'}
+                  {(r as { userName?: string }).userName ?? 'Customer'}
                 </span>
                 <Stars rating={r.rating} />
               </div>

@@ -152,7 +152,7 @@ export default function AdminDashboardPage() {
               {analytics.topProducts.map((p) => (
                 <li key={p.productId} className="flex justify-between py-3 text-sm">
                   <span className="font-medium text-slate-900">{p.productName}</span>
-                  <span className="text-slate-600">{p.sold} đã bán</span>
+                  <span className="text-slate-600">{p.sold} sold</span>
                 </li>
               ))}
             </ul>

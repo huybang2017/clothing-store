@@ -19,7 +19,7 @@ export class VoucherService {
 
   async getStats() {
     const stats = await this.voucherRepository.getStats();
-    return successResponse(stats, 'Thống kê mã giảm giá');
+    return successResponse(stats, 'Voucher statistics');
   }
 
   async findAll(query: VoucherQueryDto) {
@@ -28,7 +28,7 @@ export class VoucherService {
     const { data, total } = await this.voucherRepository.findAll(query);
     return successResponse(
       VoucherMapper.toResponseList(data),
-      'Đã tải danh sách mã giảm giá',
+      'Vouchers retrieved',
       paginationMeta(page, limit, total),
     );
   }

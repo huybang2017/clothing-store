@@ -94,7 +94,7 @@ export default function AdminInventoryPage() {
         search={searchInput}
         onSearchChange={setSearchInput}
         onSearchSubmit={() => push({ search: searchInput, page: '1' })}
-        searchPlaceholder="SKU, tên sản phẩm..."
+        searchPlaceholder="SKU, product name..."
         sortValue={sort}
         sortOptions={[
           { value: 'stock_asc', label: vi.admin.sortStockAsc },

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
 import { OrderStatus, UserRole } from '../../../common/constants';
-import { MSG } from '../../../common/i18n/messages.vi';
+import { MSG } from '../../../common/i18n/messages.en';
 import { BusinessException } from '../../../common/exceptions/business.exception';
 import {
   paginationMeta,
@@ -64,12 +64,12 @@ export class OrderService {
         const order = await this.orderRepository.findById(id);
         if (order && order.status !== OrderStatus.CANCELLED) {
           await this.cancel(id, order.userId, UserRole.ADMIN, {
-            reason: 'Hủy hàng loạt bởi quản trị',
+            reason: 'Bulk cancelled by admin',
           });
         }
       }
     }
-    return successResponse(null, 'Đã cập nhật hàng loạt');
+    return successResponse(null, 'Bulk update completed');
   }
 
   async findOne(id: string, userId: string, role: string) {
@@ -96,11 +96,11 @@ export class OrderService {
     for (const item of items) {
       if (!item.productIsActive) {
         throw new BusinessException(
-          `Sản phẩm ${item.productName} không khả dụng`,
+          `Product ${item.productName} is unavailable`,
         );
       }
       if (item.productStock < item.quantity) {
-        throw new BusinessException(`Không đủ tồn kho cho ${item.productName}`);
+        throw new BusinessException(`Insufficient stock for ${item.productName}`);
       }
 
       const unitPrice = Number(item.productPrice);
@@ -147,7 +147,7 @@ export class OrderService {
         item.quantity,
       );
       if (!updated) {
-        throw new BusinessException(`Không đủ tồn kho cho ${item.productName}`);
+        throw new BusinessException(`Insufficient stock for ${item.productName}`);
       }
     }
 
@@ -188,10 +188,10 @@ export class OrderService {
     if (!order) throw new BusinessException(MSG.ORDER_NOT_FOUND, 404);
 
     const statusNotes: Partial<Record<OrderStatus, string>> = {
-      [OrderStatus.CONFIRMED]: 'Đơn hàng đã được xác nhận',
-      [OrderStatus.PROCESSING]: 'Đơn hàng đang được đóng gói',
-      [OrderStatus.SHIPPED]: 'Đơn hàng đã bàn giao cho đơn vị vận chuyển',
-      [OrderStatus.DELIVERED]: 'Giao hàng thành công',
+      [OrderStatus.CONFIRMED]: 'Order confirmed',
+      [OrderStatus.PROCESSING]: 'Order is being packed',
+      [OrderStatus.SHIPPED]: 'Order handed to carrier',
+      [OrderStatus.DELIVERED]: 'Delivered successfully',
     };
 
     await this.orderRepository.updateStatus(
@@ -249,7 +249,7 @@ export class OrderService {
     await this.orderRepository.updateStatus(
       id,
       OrderStatus.CANCELLED,
-      dto?.reason ?? 'Đơn hàng đã bị hủy',
+      dto?.reason ?? 'Order cancelled',
     );
 
     const full = await this.orderRepository.findByIdWithItems(id);
@@ -331,8 +331,8 @@ export class OrderService {
     return successResponse(
       { added, skipped, addedCount: added.length },
       added.length
-        ? `Đã thêm ${added.length} sản phẩm vào giỏ hàng`
-        : 'Không có sản phẩm nào được thêm vào giỏ',
+        ? `Added ${added.length} item(s) to cart`
+        : 'No items were added to cart',
     );
   }
 }

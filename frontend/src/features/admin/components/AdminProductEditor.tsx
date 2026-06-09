@@ -35,7 +35,7 @@ type OptionRow = { name: string; values: string };
 type VariantRow = ProductVariant & { optionValues?: Record<string, string> };
 
 const DEFAULT_OPTIONS: OptionRow[] = [
-  { name: 'Màu sắc', values: 'Đen, Trắng' },
+  { name: 'Color', values: 'Black, White' },
   { name: 'Size', values: 'S, M, L, XL' },
 ];
 
@@ -442,11 +442,11 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>Thông tin cơ bản</CardTitle>
+          <CardTitle>Basic information</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 sm:grid-cols-2">
           <label className="block text-sm">
-            Tên sản phẩm
+            Product name
             <Input className="mt-1" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label className="block text-sm">
@@ -454,11 +454,11 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
             <Input className="mt-1" value={slug} onChange={(e) => setSlug(e.target.value)} />
           </label>
           <label className="block text-sm sm:col-span-2">
-            Mô tả
+            Description
             <Input className="mt-1" value={description} onChange={(e) => setDescription(e.target.value)} />
           </label>
           <label className="block text-sm">
-            Danh mục
+            Category
             <select
               className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
               value={categoryId}
@@ -473,7 +473,7 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
             </select>
           </label>
           <label className="block text-sm">
-            Thương hiệu
+            Brand
             <select
               className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
               value={brandId}
@@ -488,11 +488,11 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
             </select>
           </label>
           <label className="block text-sm">
-            SKU gốc
+            Base SKU
             <Input className="mt-1" value={baseSku} onChange={(e) => setBaseSku(e.target.value)} />
           </label>
           <label className="block text-sm">
-            Giá gốc (VND)
+            Base price (VND)
             <Input
               type="number"
               className="mt-1"
@@ -580,7 +580,7 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
       {variants.length > 0 && (
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Bảng biến thể ({variants.length})</CardTitle>
+            <CardTitle>Variant table ({variants.length})</CardTitle>
             <div className="flex gap-2">
               <Input
                 placeholder={vi.admin.stock}
@@ -748,7 +748,7 @@ export function AdminProductEditor({ productId }: AdminProductEditorProps) {
       </Button>
       {variants.length > 0 && (
         <p className="text-sm text-slate-500">
-          Tổng tồn kho: {variants.reduce((s, v) => s + Number(v.stock), 0)} · Giá từ{' '}
+          Total stock: {variants.reduce((s, v) => s + Number(v.stock), 0)} · Price from{' '}
           {formatVND(Math.min(...variants.map((v) => Number(v.price) || 0)))}
         </p>
       )}
