@@ -50,7 +50,7 @@ export const vi = {
     allProducts: 'Tất cả sản phẩm',
     email: 'hello@unisexfashion.vn',
     phone: '1900 5678',
-    address: 'TP. Hồ Chí Minh, Việt Nam',
+    address: 'Hà Nội, Việt Nam',
     crafted: 'Thiết kế tinh tế cho trải nghiệm mua sắm liền mạch',
   },
   company: {

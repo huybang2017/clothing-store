@@ -49,7 +49,7 @@ export const en = {
     allProducts: 'All products',
     email: 'hello@unisexfashion.vn',
     phone: '1900 5678',
-    address: 'Ho Chi Minh City, Vietnam',
+    address: 'Hanoi, Vietnam',
     crafted: 'Designed with care for a seamless shopping experience',
   },
   company: {
