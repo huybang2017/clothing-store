@@ -38,9 +38,9 @@ export const vi = {
     notifications: 'Thông báo',
   },
   brand: {
-    name: 'Clothify',
-    tagline: 'Thời trang cao cấp cho phong cách hiện đại',
-    copyright: 'Bản quyền thuộc về Clothify',
+    name: 'Unisex Fashion',
+    tagline: 'Thời trang tự do — phong cách cá tính',
+    copyright: 'Bản quyền thuộc về Unisex Fashion',
   },
   footer: {
     shop: 'Mua sắm',
@@ -48,121 +48,92 @@ export const vi = {
     about: 'Về chúng tôi',
     contact: 'Liên hệ',
     allProducts: 'Tất cả sản phẩm',
-    email: 'hello@clothify.vn',
-    phone: '1900 1234',
-    address: 'Hà Nội, Việt Nam',
-    crafted: 'Thiết kế với sự chăm chút cho trải nghiệm mua sắm',
+    email: 'hello@unisexfashion.vn',
+    phone: '1900 5678',
+    address: 'TP. Hồ Chí Minh, Việt Nam',
+    crafted: 'Thiết kế tinh tế cho trải nghiệm mua sắm liền mạch',
   },
   company: {
-    sectionTitle: 'Về Clothify',
+    sectionTitle: 'Về Unisex Fashion',
     nav: {
       ourStory: 'Câu chuyện của chúng tôi',
-      vision: 'Tầm nhìn',
-      mission: 'Sứ mệnh',
+      vision: 'Tầm nhìn & Sứ mệnh',
       coreValues: 'Giá trị cốt lõi',
     },
     ourStory: {
       title: 'Câu chuyện của chúng tôi',
-      subtitle: 'Hành trình từ đam mê thời trang đến thương hiệu được tin yêu',
+      subtitle: 'Bước đầu tiên hướng tới sự tự do và cá tính đích thực',
       paragraphs: [
-        'Clothify ra đời từ một niềm tin giản dị: mọi người đều xứng đáng được mặc đẹp mỗi ngày — không cần đánh đổi chất lượng hay sự thoải mái. Năm 2020, chúng tôi bắt đầu với một xưởng nhỏ tại Hà Nội, tự tay chọn từng thước vải, từng đường kim mũi chỉ, để tạo nên những thiết kế vừa vặn và bền đẹp theo thời gian.',
-        'Từ những đơn hàng đầu tiên qua mạng xã hội, Clothify dần lớn mạnh nhờ sự ủng hộ của cộng đồng yêu thời trang. Chúng tôi không chỉ bán quần áo — chúng tôi kể câu chuyện về phong cách sống tự tin, gọn gàng và có chủ đích. Mỗi bộ sưu tập đều được tuyển chọn kỹ lưỡng, cân bằng giữa xu hướng đương đại và giá trị bền vững.',
-        'Hôm nay, Clothify là điểm đến trực tuyến của hàng nghìn khách hàng trên khắp Việt Nam. Dù quy mô đã thay đổi, tinh thần ban đầu vẫn nguyên vẹn: lắng nghe, chăm chút từng chi tiết và luôn đặt trải nghiệm của bạn lên hàng đầu.',
+        'Mỗi bộ trang phục bạn chọn hôm nay là một tuyên ngôn về con người bạn sẽ trở thành ngày mai.',
+        'UF ra đời từ những khát khao chân thành của những tín đồ thời trang đang sống trong thế giới hiện đại đầy nhịp sống hối hả. Chúng tôi nhận ra rằng giữa vô vàn lựa chọn, việc tìm kiếm những trang phục thường ngày mang lại sự thoải mái tối đa mà không đánh đổi sự tinh tế và phong cách là điều không hề dễ dàng.',
+        'Vì vậy, UF chính thức ra mắt như một thương hiệu thời trang hoàn toàn mới, mang đến làn gió mới lấy cảm hứng từ tinh thần "Urban & Freedom". Được dẫn dắt bởi bảng màu đặc trưng của xanh đại dương và trắng tinh khiết, UF tượng trưng cho một khởi đầu thuần khiết, năng động và khát vọng phá vỡ mọi giới hạn. Chúng tôi bắt đầu hành trình này với một sứ mệnh đơn giản: giúp bạn định hình phong cách cá nhân một cách dễ dàng và tự do.',
       ],
       quote:
-        'Thời trang không chỉ là những gì bạn mặc — đó là cách bạn chọn thể hiện mình với thế giới.',
-      quoteAuthor: 'Đội ngũ sáng lập Clothify',
+        'Mỗi bộ trang phục bạn chọn hôm nay là một tuyên ngôn về con người bạn sẽ trở thành ngày mai.',
+      quoteAuthor: 'Unisex Fashion',
       milestonesTitle: 'Cột mốc phát triển',
       milestones: [
-        { year: '2020', label: 'Thành lập tại Hà Nội với bộ sưu tập đầu tiên' },
-        { year: '2022', label: 'Ra mắt nền tảng thương mại điện tử Clothify.vn' },
-        { year: '2024', label: 'Hợp tác với hơn 50 thương hiệu và nhà sản xuất trong nước' },
-        { year: '2026', label: 'Phục vụ hàng nghìn khách hàng trên toàn quốc' },
+        { year: '2025', label: 'Ra mắt Unisex Fashion — khởi đầu hành trình Urban & Freedom' },
       ],
     },
     vision: {
       title: 'Tầm nhìn',
-      subtitle: 'Hướng tới tương lai thời trang bền vững và đáng tin cậy',
-      lead: 'Trở thành thương hiệu thời trang trực tuyến hàng đầu Việt Nam — nơi phong cách gặp gỡ sự tử tế.',
+      subtitle: 'Biểu tượng thế hệ mới cho trang phục thường ngày',
+      lead: 'Trở thành biểu tượng thế hệ mới cho trang phục thường ngày, được giới trẻ tin chọn như lựa chọn hàng đầu cho lối sống tối giản, hiện đại.',
       paragraphs: [
-        'Chúng tôi hình dung một thế giới nơi mua sắm thời trang trở nên minh bạch, dễ dàng và đầy cảm hứng. Mỗi sản phẩm trên Clothify đều phản ánh cam kết về chất lượng, nguồn gốc rõ ràng và trách nhiệm với môi trường.',
-        'Trong tầm nhìn dài hạn, Clothify muốn góp phần định hình văn hóa thời trang Việt: tự hào với thiết kế bản địa, cởi mở với xu hướng quốc tế, và luôn đặt con người — cả khách hàng lẫn người làm ra sản phẩm — vào trung tâm.',
+        'UF hướng tới xây dựng một nền tảng mua sắm trực tuyến tiên tiến, nơi trải nghiệm khách hàng được cá nhân hóa cao độ và tối ưu một cách liền mạch.',
       ],
       pillars: [
         {
-          title: 'Dẫn đầu trải nghiệm',
-          description: 'Mua sắm trực tuyến mượt mà, giao hàng nhanh và hỗ trợ tận tâm ở mọi bước.',
+          title: 'Cá nhân hóa trải nghiệm',
+          description: 'Nền tảng thông minh thấu hiểu sở thích của bạn, gợi ý trang phục phù hợp với cá tính riêng.',
         },
         {
-          title: 'Thời trang có ý nghĩa',
-          description: 'Ưu tiên chất liệu bền, thiết kế lâu dài thay vì xu hướng nhất thời.',
+          title: 'Tối ưu liền mạch',
+          description: 'Quy trình mua sắm được thiết kế tinh gọn từ khâu khám phá đến thanh toán, mang lại sự thuận tiện tối đa.',
         },
         {
-          title: 'Cộng đồng gắn kết',
-          description: 'Xây dựng không gian nơi mọi người chia sẻ phong cách và cảm hứng thời trang.',
+          title: 'Phong cách hiện đại',
+          description: 'Định hình xu hướng thời trang tối giản, tinh tế dành cho thế hệ trẻ năng động.',
         },
       ],
     },
     mission: {
       title: 'Sứ mệnh',
-      subtitle: 'Những gì chúng tôi làm mỗi ngày vì bạn',
-      lead: 'Mang đến thời trang chất lượng cao, giá cả hợp lý và trải nghiệm mua sắm đáng tin cậy cho mọi người Việt.',
+      subtitle: 'Cam kết từ ngày đầu tiên',
+      lead: 'UF mang đến những thiết kế ứng dụng cao và chất lượng vượt trội, giúp bạn tự tin tỏa sáng mỗi ngày.',
       commitments: [
         {
-          title: 'Tuyển chọn kỹ càng',
+          title: 'Effortless Styling',
           description:
-            'Mỗi sản phẩm đều trải qua quy trình kiểm duyệt nghiêm ngặt về chất liệu, form dáng và độ bền trước khi đến tay bạn.',
+            'Mang đến những thiết kế ứng dụng cao, linh hoạt giúp việc phối đồ trở nên dễ dàng, tiết kiệm thời gian mà vẫn luôn sành điệu và thu hút.',
         },
         {
-          title: 'Giá trị minh bạch',
+          title: 'Cam kết từ ngày đầu tiên',
           description:
-            'Chúng tôi tin vào giá cả công bằng — không chiêu trò, không ẩn phí. Bạn luôn biết mình đang trả tiền cho điều gì.',
-        },
-        {
-          title: 'Phục vụ tận tâm',
-          description:
-            'Từ tư vấn chọn size đến hỗ trợ sau mua, đội ngũ Clothify luôn sẵn sàng lắng nghe và giải quyết mọi thắc mắc.',
-        },
-        {
-          title: 'Giao hàng đúng hẹn',
-          description:
-            'Đóng gói cẩn thận, vận chuyển an toàn và cập nhật trạng thái đơn hàng rõ ràng — vì thời gian của bạn rất quý giá.',
+            'Đảm bảo mọi sản phẩm từ bộ sưu tập đầu tiên đều đáp ứng tiêu chuẩn cao nhất về chất lượng vải và form dáng, mang lại sự thoải mái tuyệt đối cho người mặc.',
         },
       ],
     },
     coreValues: {
       title: 'Giá trị cốt lõi',
-      subtitle: 'Kim chỉ nam định hướng mọi quyết định tại Clothify',
+      subtitle: 'Ba trụ cột vận hành của Unisex Fashion',
+      lead: 'Tại UF, chúng tôi tin rằng "Mỗi bộ trang phục bạn chọn hôm nay là một tuyên ngôn về con người bạn sẽ trở thành ngày mai." Để hiện thực hóa tầm nhìn này, thương hiệu của chúng tôi vận hành dựa trên ba trụ cột cốt lõi:',
       items: [
         {
-          title: 'Chất lượng là ưu tiên',
+          title: 'Thiết kế có chủ đích',
           description:
-            'Chúng tôi không thỏa hiệp về chất liệu hay đường may. Mỗi sản phẩm phải đáng để bạn mặc đi mặc lại.',
+            'Thay vì chạy theo những xu hướng phù phiếm, UF tạo ra những thiết kế tối giản và linh hoạt, tôn vinh bản sắc riêng của bạn. Mỗi sản phẩm đều được tạo nên để giúp bạn tự tin thể hiện cá tính của mình.',
         },
         {
-          title: 'Khách hàng là trung tâm',
+          title: 'Chính trực ngay từ ngày đầu',
           description:
-            'Mọi cải tiến đều bắt đầu từ phản hồi của bạn. Sự hài lòng của khách hàng là thước đo thành công lớn nhất.',
+            'Là thương hiệu mới, niềm tin là tài sản lớn nhất của UF. Chúng tôi cam kết minh bạch tuyệt đối về chất liệu và tỉ mỉ đến từng đường kim mũi chỉ, mang đến trải nghiệm cao cấp mà bạn xứng đáng.',
         },
         {
-          title: 'Trung thực & minh bạch',
+          title: 'Hành trình liền mạch',
           description:
-            'Thông tin sản phẩm rõ ràng, chính sách công khai và lời hứa được giữ đúng — đó là cách chúng tôi xây dựng niềm tin.',
-        },
-        {
-          title: 'Bền vững có trách nhiệm',
-          description:
-            'Ưu tiên nguồn cung có đạo đức, giảm lãng phí bao bì và khuyến khích lựa chọn thời trang bền theo thời gian.',
-        },
-        {
-          title: 'Đổi mới liên tục',
-          description:
-            'Luôn cập nhật xu hướng, công nghệ và quy trình để mang đến trải nghiệm mua sắm ngày càng tốt hơn.',
-        },
-        {
-          title: 'Gắn kết cộng đồng',
-          description:
-            'Clothify không chỉ là cửa hàng — đó là nơi những người yêu thời trang cùng chia sẻ, học hỏi và truyền cảm hứng.',
+            'Thời trang nên là niềm vui. Từ giao diện website sạch sẽ, trực quan đến quy trình thanh toán nhanh chóng, UF tối ưu mọi điểm chạm để trải nghiệm mua sắm của bạn luôn nhẹ nhàng và thú vị.',
         },
       ],
     },
@@ -171,10 +142,10 @@ export const vi = {
     welcomeBack: 'Chào mừng trở lại',
     signInSubtitle: 'Đăng nhập để tiếp tục mua sắm.',
     createAccount: 'Tạo tài khoản',
-    registerSubtitle: 'Tham gia Clothify và bắt đầu mua sắm ngay hôm nay.',
-    heroTitle: 'Thời trang cao cấp, giao hàng tận tâm.',
+    registerSubtitle: 'Tham gia Unisex Fashion và bắt đầu mua sắm ngay hôm nay.',
+    heroTitle: 'Unisex Fashion — thời trang tự do, giao hàng tận tâm.',
     heroSubtitle:
-      'Hàng ngàn khách hàng tin tưởng Clothify vì chất lượng sản phẩm và trải nghiệm mua sắm mượt mà.',
+      'Hàng ngàn khách hàng tin tưởng Unisex Fashion vì chất lượng và phong cách.',
     email: 'Email',
     password: 'Mật khẩu',
     confirmPassword: 'Xác nhận mật khẩu',
@@ -196,7 +167,7 @@ export const vi = {
     badge: 'Bộ sưu tập mùa mới',
     heroTitle: 'Phong cách nói lên cá tính của bạn',
     heroSubtitle:
-      'Khám phá thời trang cao cấp — thoải mái, tự tin và phù hợp mọi ngày.',
+      'Khám phá Unisex Fashion — thoải mái, tự tin và phù hợp mọi ngày.',
     shopCollection: 'Mua bộ sưu tập',
     featured: 'Sản phẩm nổi bật',
     featuredDesc: 'Những lựa chọn được chúng tôi đề xuất',

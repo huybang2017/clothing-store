@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Gem, Heart, Shield, Leaf, Lightbulb, Users } from 'lucide-react';
+import { Gem, Shield, Zap } from 'lucide-react';
 import { CompanyPageHero } from '@/features/company/components/CompanyPageHero';
 import { vi } from '@/lib/i18n';
 
 const content = vi.company.coreValues;
 
-const icons = [Gem, Heart, Shield, Leaf, Lightbulb, Users] as const;
+const icons = [Gem, Shield, Zap] as const;
 
 export const metadata: Metadata = {
   title: `${content.title} | ${vi.brand.name}`,
@@ -16,6 +16,8 @@ export default function CoreValuesPage() {
   return (
     <div className="space-y-10">
       <CompanyPageHero title={content.title} subtitle={content.subtitle} />
+
+      <p className="text-base leading-relaxed text-slate-700">{content.lead}</p>
 
       <section className="grid gap-5 sm:grid-cols-2">
         {content.items.map(({ title, description }, index) => {

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Eye, Heart, Sparkles } from 'lucide-react';
+import { BookOpen, Eye, Sparkles } from 'lucide-react';
 import { ROUTES } from '@/constants/routes';
 import { vi } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils';
 const links = [
   { href: ROUTES.company.ourStory, label: vi.company.nav.ourStory, icon: BookOpen },
   { href: ROUTES.company.vision, label: vi.company.nav.vision, icon: Eye },
-  { href: ROUTES.company.mission, label: vi.company.nav.mission, icon: Heart },
   { href: ROUTES.company.coreValues, label: vi.company.nav.coreValues, icon: Sparkles },
 ] as const;
 

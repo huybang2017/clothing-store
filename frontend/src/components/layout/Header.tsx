@@ -21,7 +21,6 @@ const navLinks = [
 const aboutLinks = [
   { href: ROUTES.company.ourStory, label: vi.company.nav.ourStory },
   { href: ROUTES.company.vision, label: vi.company.nav.vision },
-  { href: ROUTES.company.mission, label: vi.company.nav.mission },
   { href: ROUTES.company.coreValues, label: vi.company.nav.coreValues },
 ];
 
@@ -52,12 +51,9 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           href={ROUTES.home}
-          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-slate-900"
+          className="flex items-center"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-sm text-white">
-            C
-          </span>
-          {vi.brand.name}
+          <img src="/images/logo.svg" alt={vi.brand.name} className="h-24 w-auto" />
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map(({ href, label }) => (

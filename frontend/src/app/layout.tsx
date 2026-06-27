@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Clothify — Premium Fashion Store',
-  description: 'Premium fashion e-commerce platform',
+  title: 'Unisex Fashion — Urban & Freedom Style',
+  description: 'Unisex Fashion — Urban & Freedom Style',
 };
 
 export default function RootLayout({

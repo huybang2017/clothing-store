@@ -116,7 +116,36 @@ export class ChatService {
 
     const message = ChatMapper.toMessage(row);
     this.chatGateway.broadcastMessage(dto.conversationId, message);
+
+    if (senderRole === 'customer') {
+      this.chatGateway.startAutoReplyTimer(dto.conversationId);
+    } else {
+      this.chatGateway.clearAutoReplyTimer(dto.conversationId);
+    }
+
     return message;
+  }
+
+  async sendAutoReply(conversationId: string) {
+    const conversation = await this.chatRepository.findConversationById(
+      conversationId,
+    );
+    if (!conversation || conversation.status !== 'open') return;
+
+    const content =
+      'Thank you for reaching out! Our agents are currently assisting other customers. We will respond to you within 2-3 hours. Please wait patiently.';
+
+    const row = await this.chatRepository.saveMessage({
+      id: randomUUID(),
+      conversationId,
+      senderId: 'system',
+      senderRole: 'admin',
+      content,
+      isRead: false,
+    });
+
+    const message = ChatMapper.toMessage(row);
+    this.chatGateway.broadcastMessage(conversationId, message);
   }
 
   async sendGuestMessage(guestId: string, conversationId: string, content: string) {

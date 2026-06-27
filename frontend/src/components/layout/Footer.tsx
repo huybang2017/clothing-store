@@ -18,7 +18,6 @@ const accountLinks = [
 const aboutLinks = [
   { href: ROUTES.company.ourStory, label: vi.company.nav.ourStory },
   { href: ROUTES.company.vision, label: vi.company.nav.vision },
-  { href: ROUTES.company.mission, label: vi.company.nav.mission },
   { href: ROUTES.company.coreValues, label: vi.company.nav.coreValues },
 ];
 
@@ -28,11 +27,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <Link href={ROUTES.home} className="inline-flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500 text-sm font-semibold text-white shadow-sm">
-                C
-              </span>
-              <span className="text-lg font-semibold text-slate-900">{vi.brand.name}</span>
+            <Link href={ROUTES.home} className="inline-flex items-center">
+              <img src="/images/logo.svg" alt={vi.brand.name} className="h-16 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-600">
               {vi.brand.tagline}

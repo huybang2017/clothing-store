@@ -23,12 +23,31 @@ export class ChatGateway implements OnGatewayConnection {
   @WebSocketServer()
   server: Server;
 
+  private autoReplyTimers = new Map<string, NodeJS.Timeout>();
+
   constructor(
     @Inject(forwardRef(() => ChatService))
     private readonly chatService: ChatService,
     private readonly jwtService: JwtService,
     private readonly config: ConfigService,
   ) {}
+
+  startAutoReplyTimer(conversationId: string) {
+    this.clearAutoReplyTimer(conversationId);
+    const timer = setTimeout(() => {
+      this.autoReplyTimers.delete(conversationId);
+      this.chatService.sendAutoReply(conversationId);
+    }, 5000);
+    this.autoReplyTimers.set(conversationId, timer);
+  }
+
+  clearAutoReplyTimer(conversationId: string) {
+    const existing = this.autoReplyTimers.get(conversationId);
+    if (existing) {
+      clearTimeout(existing);
+      this.autoReplyTimers.delete(conversationId);
+    }
+  }
 
   handleConnection(client: Socket) {
     const token = client.handshake.auth?.token as string | undefined;

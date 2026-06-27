@@ -37,9 +37,9 @@ export const en = {
     notifications: 'Notifications',
   },
   brand: {
-    name: 'Clothify',
-    tagline: 'Premium fashion for the modern lifestyle',
-    copyright: 'Copyright © Clothify',
+    name: 'Unisex Fashion',
+    tagline: 'Freedom fashion — your style, your statement',
+    copyright: 'Copyright © Unisex Fashion',
   },
   footer: {
     shop: 'Shop',
@@ -47,121 +47,73 @@ export const en = {
     about: 'About us',
     contact: 'Contact',
     allProducts: 'All products',
-    email: 'hello@clothify.vn',
-    phone: '1900 1234',
-    address: 'Hanoi, Vietnam',
-    crafted: 'Crafted with care for a better shopping experience',
+    email: 'hello@unisexfashion.vn',
+    phone: '1900 5678',
+    address: 'Ho Chi Minh City, Vietnam',
+    crafted: 'Designed with care for a seamless shopping experience',
   },
   company: {
-    sectionTitle: 'About Clothify',
+    sectionTitle: 'About Unisex Fashion',
     nav: {
       ourStory: 'Our story',
-      vision: 'Vision',
-      mission: 'Mission',
+      vision: 'Vision & Mission',
       coreValues: 'Core values',
     },
     ourStory: {
       title: 'Our story',
-      subtitle: 'From a passion for fashion to a brand people trust',
+      subtitle: 'The First Step Towards Freedom and Authenticity',
       paragraphs: [
-        'Clothify began with a simple belief: everyone deserves to look and feel great every day — without sacrificing quality or comfort. In 2020 we started in a small studio in Hanoi, hand-picking fabrics and refining every stitch to create pieces that fit well and last.',
-        'From first orders on social media, Clothify grew through a community that loves thoughtful style. We do not just sell clothes — we tell stories of confident, intentional living. Every collection is curated to balance contemporary trends with lasting value.',
-        'Today Clothify serves thousands of customers across Vietnam. Our scale has changed; our founding spirit has not: listen carefully, sweat the details, and put your experience first.',
+        'Every outfit you choose today is a statement of who you will be tomorrow.',
+        'UF was born from the genuine desires of fashion enthusiasts living in the fast-paced modern world. We realized that amid countless choices, finding everyday outfits that offer maximum comfort without compromising on sophistication and style is no easy task.',
+        'Therefore, UF was officially launched as a brand-new fashion label, bringing a breath of fresh air inspired by the spirit of "Urban & Freedom." Guided by our signature palette of ocean blue and crisp white, UF represents a pure, dynamic beginning and a desire to break boundaries. We start this journey with a simple mission: to help you define your personal style effortlessly and freely.',
       ],
       quote:
-        'Fashion is not only what you wear — it is how you choose to show up in the world.',
-      quoteAuthor: 'The Clothify founding team',
-      milestonesTitle: 'Milestones',
-      milestones: [
-        { year: '2020', label: 'Founded in Hanoi with our first collection' },
-        { year: '2022', label: 'Launched the Clothify.vn e-commerce platform' },
-        { year: '2024', label: 'Partnered with 50+ domestic brands and makers' },
-        { year: '2026', label: 'Serving thousands of customers nationwide' },
-      ],
+        'Every outfit you choose today is a statement of who you will be tomorrow.',
+      quoteAuthor: 'Unisex Fashion',
+      milestonesTitle: '',
+      milestones: [],
     },
     vision: {
       title: 'Vision',
-      subtitle: 'Toward a sustainable, trusted future for fashion',
-      lead: 'To become Vietnam’s leading online fashion brand — where style meets integrity.',
-      paragraphs: [
-        'We imagine shopping for clothes that feels transparent, easy, and inspiring. Every product on Clothify reflects our commitment to quality, clear sourcing, and environmental responsibility.',
-        'Long term, we want to help shape Vietnamese fashion culture: proud of local design, open to global trends, and always centered on people — customers and makers alike.',
-      ],
-      pillars: [
-        {
-          title: 'Lead on experience',
-          description: 'Smooth online shopping, fast delivery, and caring support at every step.',
-        },
-        {
-          title: 'Meaningful fashion',
-          description: 'Durable materials and timeless design over throwaway trends.',
-        },
-        {
-          title: 'Connected community',
-          description: 'A place to share style inspiration and learn from one another.',
-        },
-      ],
+      subtitle: 'Next-generation icon for everyday wear',
+      paragraph: 'To become the next-generation icon for everyday wear, trusted by youth as their top choice for a minimalist, modern lifestyle. UF aims to build an advanced online shopping platform where the customer experience is highly personalized and seamlessly optimized.',
     },
     mission: {
       title: 'Mission',
-      subtitle: 'What we do every day for you',
-      lead: 'Deliver high-quality fashion at fair prices and a shopping experience you can rely on.',
+      subtitle: 'Commitment from Day One',
+      lead: 'UF delivers highly applicable designs with superior quality, helping you shine with confidence every day.',
       commitments: [
         {
-          title: 'Curate with care',
+          title: 'Effortless Styling',
           description:
-            'Every item passes strict checks on fabric, fit, and durability before it reaches you.',
+            'To deliver highly applicable, versatile designs that make mix-and-matching easy, saving customers time while ensuring they always look sharp and attractive.',
         },
         {
-          title: 'Transparent value',
+          title: 'Commitment from Day One',
           description:
-            'Fair pricing without gimmicks or hidden fees. You always know what you are paying for.',
-        },
-        {
-          title: 'Dedicated service',
-          description:
-            'From size advice to post-purchase support, our team is ready to help.',
-        },
-        {
-          title: 'Deliver on time',
-          description:
-            'Careful packing, safe shipping, and clear order updates — because your time matters.',
+            'To ensure every product from our very first collection meets the highest standards of fabric quality and fit, providing absolute comfort to the wearer.',
         },
       ],
     },
     coreValues: {
       title: 'Core values',
-      subtitle: 'The principles behind every decision at Clothify',
+      subtitle: 'Three core pillars of Unisex Fashion',
+      lead: 'At UF, we believe that "Every outfit you choose today is a statement of who you will be tomorrow." To bring this vision to life, our brand operates on three core pillars:',
       items: [
         {
-          title: 'Quality first',
+          title: 'Purposeful Design',
           description:
-            'We never compromise on materials or construction. Every piece should be worth wearing again and again.',
+            'Rather than chasing fleeting trends, UF creates minimalist and versatile garments that celebrate your unique identity. Every piece is designed to empower you to confidently make your statement.',
         },
         {
-          title: 'Customer at the center',
+          title: 'Day-One Integrity',
           description:
-            'Improvements start with your feedback. Your satisfaction is our greatest measure of success.',
+            'As a newly launched brand, trust is our greatest asset. UF is committed to absolute transparency in our materials and meticulous attention to every single stitch, delivering the premium experience you truly deserve.',
         },
         {
-          title: 'Honesty & transparency',
+          title: 'Seamless Journey',
           description:
-            'Clear product information, open policies, and promises kept — that is how we earn trust.',
-        },
-        {
-          title: 'Responsible sustainability',
-          description:
-            'Ethical sourcing, less packaging waste, and choices that last beyond a single season.',
-        },
-        {
-          title: 'Continuous innovation',
-          description:
-            'We keep evolving trends, technology, and processes to improve how you shop.',
-        },
-        {
-          title: 'Community connection',
-          description:
-            'Clothify is more than a store — it is where fashion lovers share, learn, and inspire.',
+            'Fashion should be about enjoyment. From a clean, intuitive website interface to a lightning-fast checkout process, UF optimizes every touchpoint to ensure your shopping experience is always effortless and delightful.',
         },
       ],
     },
@@ -170,10 +122,10 @@ export const en = {
     welcomeBack: 'Welcome back',
     signInSubtitle: 'Sign in to continue shopping.',
     createAccount: 'Create account',
-    registerSubtitle: 'Join Clothify and start shopping today.',
-    heroTitle: 'Premium fashion, delivered with care.',
+    registerSubtitle: 'Join Unisex Fashion and start shopping today.',
+    heroTitle: 'Freedom fashion, delivered with care.',
     heroSubtitle:
-      'Thousands of customers trust Clothify for quality products and a seamless shopping experience.',
+      'Join thousands of customers who trust Unisex Fashion for quality and style.',
     email: 'Email',
     password: 'Password',
     confirmPassword: 'Confirm password',
@@ -195,7 +147,7 @@ export const en = {
     badge: 'New season collection',
     heroTitle: 'Style that speaks for you',
     heroSubtitle:
-      'Discover premium fashion — comfortable, confident, and perfect for every day.',
+      'Discover Unisex Fashion — comfortable, confident, and perfect for every day.',
     shopCollection: 'Shop the collection',
     featured: 'Featured products',
     featuredDesc: 'Handpicked selections from our team',
